@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "projects/wind-turbine.html",
+    "href": "projects/wind-turbine.html",
+    "title": "Wind Turbine Operational Analysis & Clustering",
+    "section": "",
+    "text": "← Back to Portfolio\n\nWind Turbine Operational Analysis & Clustering\nContext: Data Analytics 344 · R-based Academic Project\n\n\nThe Problem\n\nThe objective was to discover patterns and groupings in unlabeled 10-minute aggregated sensor recordings from a wind turbine.\nThe raw dataset was highly complex, containing 60 different features with varying scales, outliers, and irregularities.\n\n\n\nThe Approach\n\nConducted exploratory data analysis, handled outliers, and generated Pearson correlation heatmaps to understand feature relationships.\nTrained a 10x10 Self-Organizing Map (SOM) over 300 epochs to identify underlying patterns.\nUsed the SOM and a U-Matrix to reduce dimensionality, selecting 10 non-redundant, high-impact features (e.g., PitchAngle, RotorSpeed, Torque).\nEvaluated cluster tendency, achieving a Hopkins Statistic of 1.\nApplied K-Means clustering, determining the optimal number of clusters to be 3 via the Elbow Method and Silhouette scores.\n\n\n\nThe Outcome\n\nFinal project mark: 96%\nSuccessfully segmented the turbine data into three distinct, cohesive operational clusters.\nDemonstrated clear relationships between environmental inputs (wind speed) and mechanical responses.\n\n\nBusiness Impact: These clusters can be utilised by site managers to identify abnormal mechanical stress and perform predictive maintenance before component failure, and to analyse correlations between components during high and low stress situations.\n\nView Full Report\n\n\n\nProject Visuals\nSelf-Organizing Map (SOM) Feature Activations \nVisualize Order Dissimilarity Matrix (VODM) \nClustering Validation Metrics\n\n\n\n\n\n\nElbow Method for k=3\n\n\n\n\n\n\n\nSilhouette Score"
+  },
+  {
+    "objectID": "projects/takealot-warehouse.html",
+    "href": "projects/takealot-warehouse.html",
+    "title": "Automated Smart Distribution Warehouse",
+    "section": "",
+    "text": "← Back to Portfolio\n\n\nContext: Project Management 412 · Multidisciplinary Simulation (Sim4Projects)\nA 12-week academic simulation project replicating the management of a $380,000 warehouse automation initiative.\n\n\n\n\nCompeting against 8 other groups to manage a simulated “Takealot warehouse automation” project across 12 live periods, each requiring resource bids, schedule decisions, and budget control with no room to undo mistakes.\nThe simulation threw unpredictable, real-world curveballs at the team, including sudden budget cuts, community unrest, and environmental fines.\nOperating within a multidisciplinary team of five engineers, the core challenge was aligning disparate technical perspectives under tight academic deadlines to deliver a highly complex project.\n\n\n\n\n\nBuilt and maintained the full MS Project baseline from the ground up, scheduling all resources and tracking task progress across every period.\nApplied Industrial Engineering systems-thinking to analyze the cost-effectiveness of each resource role. This led to the strategic decision to replace an expensive Project Manager with trained Operations Specialists and Engineers, saving significant budget.\nMonitored resource efficiency and flagged performance drops early, triggering a corrective intervention for declining engineer efficiency.\nTracked Earned Value Analysis (EVA) metrics to give the team a data-driven view of cost and schedule performance, enabling faster course correction after a major Period 6 overallocation incident.\nContributed beyond scheduling by actively driving the team’s bidding strategy, critical path prioritization, Risk Management assessments, and Earned Value Analysis.\n\n\n\n\n\nFinal project mark: 76%\nLed the team from an initial 8th-place deficit to a 1st-place overall finish in our simulation cohort by Period 8, holding that position through to the end.\nAchieved a Cost Performance Index (CPI) improvement from 0.63 to 0.86 over 12 periods.\nSuccessfully closed out, recovering the schedule to finish only 7 days behind despite the many setbacks.\n\n\nPeer Testimonial: “Emmanuel impressed me with his ability to think analytically and his command of scheduling and budgeting. He immediately became familiar to the MS Project environment and played a significant role in helping us allocate our resources as efficiently as possible. During times of stress, his composed and concentrated demeanor served to stabilize the group.” — L. Coetser (Industrial Engineer)\n\n\n\n\n\n\nEarned Value Analysis (EVA) & Cost Control  \nSim4Projects Task & Resource Tracking \nRisk Management & Prioritization \nThe Multidisciplinary Project Team"
+  },
+  {
+    "objectID": "projects/takealot-warehouse.html#view-full-report",
+    "href": "projects/takealot-warehouse.html#view-full-report",
+    "title": "Automated Smart Distribution Warehouse",
+    "section": "",
+    "text": "Earned Value Analysis (EVA) & Cost Control  \nSim4Projects Task & Resource Tracking \nRisk Management & Prioritization \nThe Multidisciplinary Project Team"
+  },
+  {
+    "objectID": "projects/ee-tracker.html",
+    "href": "projects/ee-tracker.html",
+    "title": "EasyEquities Portfolio Tracker",
+    "section": "",
+    "text": "← Back to Portfolio\n\nEasyEquities Portfolio Tracker\nContext: Personal Project · Python, C# .NET, & OCR\nA custom desktop application that extracts portfolio data from screenshots and automates Excel historical reporting.\n\n\nThe Problem\n\nUpdating weekly portfolio performance required manually typing balances, profit/loss, and percentages from EasyEquities into Excel.\nEasyEquities only provided current snapshots, making it difficult to track historical volatility, max drawdowns, or weekly returns over time.\nManaging multiple accounts (Tax-Free, ZAR, USD) and comparing live strategies to demo accounts required clicking through isolated tabs.\n\n\n\nThe Approach\n\nApplication Architecture: Built a desktop interface that triggers a Python data processing script via command-line execution.\nData Extraction: Used Python’s easyocr library to extract raw text from uploaded screenshots of the portfolio.\nData Cleaning & Parsing: Wrote regular expressions (re) and coordinate-based logic (matching \\(y\\)-center and \\(x\\)-center bounding boxes) to reconstruct rows of financial data from unstructured image text.\nError Handling: Implemented mathematical cross-validation to fix common OCR mistakes. For example, catching dropped negative signs by verifying absolute values against percentage returns, and writing custom handlers for comma/decimal misreads.\nExcel Integration: Used pandas and numpy to structure the cleaned data, and openpyxl to automatically overwrite and update the charts, tables, and heatmaps in the target Excel file.\n\n\n\nThe Outcome\n\nAutomated Workflow: Packaged the tool as a standalone .exe that takes a folder of screenshots as input and generates a fully updated Excel tracker with a single click.\nHistorical Tracking: The Excel file automatically calculates and charts weekly standard deviation (volatility), max drawdowns, and weekly return distributions for each individual holding.\nAccount Comparison: Built a feature to map and compare the performance of equivalent assets across live and demo accounts.\nCurrency Modeling: Added a scenario tool to calculate total ZAR-equivalent risk exposure based on manual USD/ZAR exchange rate adjustments.\n\n\n\n\nProject Visuals\nAutomated Python-Generated Excel Dashboard \nCustom C# .NET Application Interface"
+  },
+  {
+    "objectID": "projects/dizani-2024.html",
+    "href": "projects/dizani-2024.html",
+    "title": "LEAN Implementation & Buffer Optimization",
+    "section": "",
+    "text": "← Back to Portfolio\n\nLEAN Implementation & Buffer Optimization\nContext: Vacation Training 351 (2024) · Dizani Consulting & Bravo Brands\nA foundational industrial engineering internship focused on time studies, waste elimination, and physical layout redesign.\n\n\nThe Problem\n\nThe Bravo Lounge division manufactured 45,000 pieces of furniture a month but suffered from underutilized storage areas and inefficient material flow.\nThe factory had a long-term operational goal to create a First-In-First-Out (FIFO) buffer capable of holding two days’ worth of work (136 suites) spread across the bridge, the fibre department, and the foam cutting department.\n\n\n\nThe Approach\n\nConducted detailed time and motion studies in the foam cutting department to establish baseline standard times for the factory.\nAnalyzed the physical layout of the Fibre Department, identifying that racks were only being utilized on one side due to poor spatial orientation.\nExecuted a Phase 1 action plan to remove unused racks from the seaming department, replace them with sorting tables, and rotate the orientation of the remaining racks in the Fibre department to maximize accessibility.\n\n\n\nThe Outcome\n\nSuccessfully reoriented the Fibre Department storage layout so both sides of the racks could be utilized, significantly increasing local storage capacity and ease of access.\nThis first-phase implementation successfully moved the factory closer to its overarching 136-suite buffer target before the project was formally handed over at the completion of the internship.\nEarned a highly positive performance review, securing a return internship offer for the 2025 cycle.\n\n\nEmployer Testimonial: “Overall, Emmanuel was productive and enriching… His knowledge and skills acquired during this period will contribute positively to his academic and future career pursuits. Looking forward to round two!” - T. Els, Dizani Consulting\n\n\nVacation Training Certificate →\nNote on Confidentiality: Out of respect for client intellectual property and proprietary operations, specific process flowcharts, raw time study data, and internal software interfaces have been omitted or redacted from this public portfolio.\n\n\nProject Visuals\nContinuous Improvement: Stock Buffer Optimization \nTime & Motion Study Data Collection"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Emmanuel Fako",
+    "section": "",
+    "text": "Industrial Engineer\n\nData-driven operations and process improvement, turning complexity into clarity.\n\nView My Work LinkedIn"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Emmanuel Fako",
+    "section": "About Me",
+    "text": "About Me\nI’m an Industrial Engineer with a focus on data analytics, operations, and process improvement. I study at Stellenbosch University and have applied IE principles across two internships and a range of academic projects spanning simulation, information systems, project management, supply chain, and machine learning.\nThis portfolio is a living document, I’ll keep adding work as I go."
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Emmanuel Fako",
+    "section": "Experience",
+    "text": "Experience\nIndustrial Engineering Intern · Dizani Consulting - Beekman Canopy Division January 2025\n\nConducted time studies on a fiberglass canopy manufacturing line to establish production baselines and identify inefficiencies\nApplied Lean Manufacturing and Value Stream Mapping (VSM) to develop targeted improvement interventions\nContributed to raising Overall Equipment Effectiveness (OEE) from 72% to above 90%, formally recognised by site management\nEstablished performance measurement standards and visual management systems for sustained gains\n\nIndustrial Engineering Intern · Dizani Consulting - Coricraft January 2025\n\nSupported migration of large-scale product data into Dizani’s Per4ma operations platform\nCleaned, validated, and reformatted product datasets to enable accurate ticketing and real-time tracking\nGained exposure to warehouse systems and digital performance tools in a retail distribution environment\n\nIndustrial Engineering Intern · Dizani Consulting - Alpine Furniture January 2024\n\nPerformed time studies to quantify throughput and identify a storage buffer area as the primary bottleneck\nDesigned and implemented a revised facility layout, relieving the bottleneck and improving production flow\nReorganised furniture covers storage to maximize unit capacity within existing floor space\nApplied Lean methodologies and VSM to standardize processes and ongoing monitoring"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Emmanuel Fako",
+    "section": "Education",
+    "text": "Education\nBEng Industrial Engineering · Stellenbosch University 2022 - Present\n\nQuality Assurance, Quality Management, Operations Research I & II, Data Analytics, Engineering Statistics, Manufacturing Systems, Production Management, Information Systems, Simulation, Enterprise Design, Industrial Ergonomics, Project Management, Engineering Economics, Industrial Management, Environmental Engineering"
+  },
+  {
+    "objectID": "index.html#technical-skills-tools",
+    "href": "index.html#technical-skills-tools",
+    "title": "Emmanuel Fako",
+    "section": "Technical Skills & Tools",
+    "text": "Technical Skills & Tools\n\n\n\n\n\n\n\nCategory\nTools & Skills\n\n\n\n\nQuality & Compliance\nQuality Assurance, Quality Management, Inspection & Validation, Standards Compliance, OEE Analysis, Defect Identification, 5S\n\n\nProcess Improvement\nLean Manufacturing, Value Stream Mapping, Bottleneck Analysis, Time Studies, Waste Elimination, Facility Layout Design\n\n\nModelling & Analysis\nSimulation Modelling, Operations Research, Linear Programming, Engineering Statistics, Enterprise Design\n\n\nData & Reporting\nAdvanced Excel (Pivot Tables, Solver, VBA), SQL , R, Data Cleaning & Validation, KPI Dashboards, Visual Management, Visio\n\n\nSystems & Information\nInformation Systems, Data Governance, Per4ma, Systems Analysis, Process Documentation\n\n\nProject Management\nPlanning & Scheduling, Risk Analysis, Resource Coordination, Stakeholder Communication (IPMA Certified)\n\n\nSupply Chain\nEnd-to-End Value Chain Management, Inventory & Warehouse Operations, Performance Measurement\n\n\nDesign & Drafting\nAutodesk Inventor Professional (3D Modelling, Technical Drawings)\n\n\nSoftware\nMicrosoft Office Suite , Google Workspace"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Emmanuel Fako",
+    "section": "Certifications",
+    "text": "Certifications\nView All Certifications"
+  },
+  {
+    "objectID": "certifications.html",
+    "href": "certifications.html",
+    "title": "Certifications",
+    "section": "",
+    "text": "Professional and technical credentials across project management, supply chain, and data analytics.\n\n\n\n\n\nArea\nCertification\nIssuing Organization\nYear\nCredential\n\n\n\n\nProject Management\nFoundation Certificate in PM (ICB4)\nIPMA South Africa\n2025\nView\n\n\nSQL\nIntro to SQL\nKaggle\n2026\nView\n\n\nSQL\nAdvanced SQL\nKaggle\n2026\nView\n\n\nSupply Chain\nEnd-to-End Supply Chain Excellence\nInchainge\n2024\nView"
+  },
+  {
+    "objectID": "certifications.html#professional-technical-credentials",
+    "href": "certifications.html#professional-technical-credentials",
+    "title": "Certifications",
+    "section": "",
+    "text": "Area\nCertification\nIssuing Organization\nYear\nCredential\n\n\n\n\nProject Management\nFoundation Certificate in PM (ICB4)\nIPMA South Africa\n2025\nView\n\n\nSQL\nIntro to SQL\nKaggle\n2026\nView\n\n\nSQL\nAdvanced SQL\nKaggle\n2026\nView\n\n\nSupply Chain\nEnd-to-End Supply Chain Excellence\nInchainge\n2024\nView"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "GET IN TOUCH",
+    "section": "",
+    "text": "GET IN TOUCH\n\n  \n    \n    \n      Name\n      \n    \n    \n    \n      Email\n      \n    \n    \n    \n      Message\n      \n    \n    \n    Send Message"
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Portfolio\nA selection of academic and professional work.\n\n\n\n\n\nWind Turbine Clustering\n\n\n\nWind Turbine Operational Analysis & Clustering\nVarsity Data Analytics R Clustering\nSegmented 60-feature turbine sensor data into 3 operational clusters using SOM and K-Means, enabling predictive maintenance decisions.\nRead more →\n\n\n\n\n\n\nThe Fresh Connection Supply Chain\n\n\n\nSupply Chain Strategy: The Fresh Connection\nVarsity Supply Chain Purchasing Data Analysis Optimization\nFulfilled the role of Purchasing Manager for a massive simulated fruit juice company, executing an efficiency-driven strategy across 6 rounds to achieve an 80% final grade and a 5th-place finish.\nRead more →\n\n\n\n\n\n\nThermal Stress Analysis\n\n\n\nErgonomics & Thermal Stress Analysis\nVarsity Ergonomics First Principles ECSA GA2 Methodology\nDemonstrated the application of scientific and engineering knowledge from first principles to solve a complex workplace thermal stress problem using custom instrumentation and ergonomic modeling.\nRead more →\n\n\n\n\n\n\nTakealot Smart Distribution Warehouse\n\n\n\nProject Management: Automated Smart Distribution Warehouse\nVarsity Project Management MS Project Resource Optimization Risk\nLed the scheduling, baseline architecture, and resource strategy for a 12-period Project Management simulation, securing a 1st-place cohort finish.\nRead more →\n\n\n\n\n\n\nOEE Optimization\n\n\n\nInternship 2025: Dizani x Coricraft x Beekman - OEE Optimization & Digital Tracking\nInternship OEE LEAN Process Improvement\nLed process optimization initiatives at Coricraft and Beekman Canopies, digitizing performance tracking and driving laminating team OEE from 72% to over 90%.\nRead more →\n\n\n\n\n\n\nLEAN Layout Optimization\n\n\n\nInternship 2024: Dizani x Alpine - LEAN Implementation & Layout Design\nInternship LEAN Time Studies Facility Layout Process Improvement\nImplemented LEAN methodologies and redesigned the Fibre Department’s material stock buffer, significantly increasing local storage capacity and advancing the factory toward its 136-suite target.\nRead more →\n\n\n\n\n\n\nPortfolio Tracker Dashboard\n\n\n\nEasyEquities Portfolio Tracker\nPython C# .NET OCR Excel Automation Finance Machine Learning\nBuilt a C# desktop application and Python script to extract portfolio data from screenshots using OCR(Optical Character Recognition) and automatically update a custom Excel tracking dashboard.\nRead more →"
+  },
+  {
+    "objectID": "projects/dizani-2025.html",
+    "href": "projects/dizani-2025.html",
+    "title": "OEE Optimization & Digital Performance Tracking",
+    "section": "",
+    "text": "← Back to Portfolio\n\nOEE Optimization & Digital Performance Tracking\nContext: Vacation Training 451 (2025) · Dizani Consulting, Coricraft & Beekman Canopies\nA high-impact process engineering internship focused on digitizing factory performance and driving Overall Equipment Effectiveness (OEE).\n\n\nThe Problem\n\nManufacturing plants at Coricraft and Beekman Canopies lacked real-time productivity tracking and suffered from unmeasured material flow bottlenecks.\nThe Beekman plant specifically needed a way to measure the critical laminating process output against target schedules.\n\n\n\nThe Approach\n\nCoricraft: Set standard times for upholstery cells and integrated them into the Per4ma digital tracking system via a new barcode ticket system. Optimized CNC material yield using AlphaCam nesting software to group and cut wood parts with minimal waste.\nBeekman Canopies: Conducted time studies for the laminating process, mathematically incorporating a 15% rest allowance to account for factory heat and paint fumes.\nProposed physical process improvements to eliminate idle time, including additional tool-washing basins and mechanical lifting levers to reduce dependency on unavailable manual labor.\n\n\n\nThe Outcome\n\nDirectly contributed to driving the Overall Equipment Effectiveness (OEE) at the Beekman plant from 72% to over 90%.\nEnabled real-time, digital efficiency tracking for factory floor managers across multiple production lines.\n\n\nEmployer Testimonial: “This gentleman conducted himself to a level where Dizani will use him again and again. He did not just learn but contributed to the project at Beekman Canopies… Managed to take the team from 72% OEE into the 90% - Well done!!” - T. Els, Dizani Consulting\n\n\nVacation Training Certificate →\nNote on Confidentiality: Out of respect for client intellectual property and proprietary operations, specific process flowcharts, raw time study data, and internal software interfaces have been omitted or redacted from this public portfolio.\n\n\nProject Visuals\nAlphaCam CNC Nesting & Material Optimization"
+  },
+  {
+    "objectID": "projects/fresh-connection.html",
+    "href": "projects/fresh-connection.html",
+    "title": "Supply Chain Strategy: The Fresh Connection",
+    "section": "",
+    "text": "← Back to Portfolio\n\nSupply Chain Strategy: The Fresh Connection\nContext: Industrial Management 354 · Supply Chain Decision Simulation\n\n\nThe Problem\n\nThe objective was to turn around a failing fruit juice company from its demise over six successive simulation rounds.\nThe simulation required balancing severe trade-offs across four interconnected functions: Purchasing, Operations, Sales, and Supply Chain.\nAs the Purchasing lead, I was responsible for all decisions regarding suppliers and supplier agreements, directly impacting component availability and business profitability.\n\n\n\nThe Approach\n\nAdopted a strict efficiency-focused strategy (as opposed to responsiveness) to ensure strategic fit and competitive alignment.\nAnalyzed round-over-round data to quantify the Total Cost of Ownership (TCO) for raw materials, successfully modeling how acquisition costs played a big role in total cost, in Orange especially.\nOptimized component lot sizing and safety stock levels for critical materials (e.g., PET, Orange, Vitamin C) based on their specific product characteristics, volumes, and values.\nCollaborated cross-functionally to ensure purchasing decisions did not negatively constrain warehousing capacity or cause production bottlenecks.\n\n\n\nThe Outcome\n\nFinal project mark: 80%, with a ROI of 38.31%.\nSecured a 5th place overall finish in the cohort ranking of 28 teams.\nSuccessfully aligned overarching business and supply chain strategies, translating them into tactical purchasing decisions.\n\n\nBusiness Impact: Demonstrated the ability to practically apply a Sales and Operations Planning (S&OP) approach, proving that rigorous, data-driven supplier selection and TCO management directly drive higher Return on Investment (ROI).\n\n\n\n\nProject Visuals\nTotal Cost of Ownership (TCO) Analysis \nValue Chain and Cross-Functional Supply Chain Trade-Offs\n\n\n\n\n\n\nValue Chain\n\n\n\n\n\n\n\nSupply Chain Trade-Offs\n\n\n\n\n\nSupplier Summary and Decisions"
+  },
+  {
+    "objectID": "projects/thermal-stress.html",
+    "href": "projects/thermal-stress.html",
+    "title": "Ergonomics & Thermal Stress Analysis",
+    "section": "",
+    "text": "← Back to Portfolio\n\n\nContext: Industrial Ergonomics 414 · ECSA GA2 Project\n\n\n\n\nThermal stress in hot, humid work environments significantly impacts worker performance, safety, and health, leading to fatigue and reduced efficiency.\nBecause ambient conditions cannot always be fully eliminated (e.g., in mobile work contexts like Uber driving), mitigating heat stress requires a multidisciplinary engineering approach.\nThe objective was to apply scientific and engineering knowledge from first principles (ECSA GA2) to assess thermal risk and develop practical interventions.\n\n\n\n\n\nCollected environmental data in a simulated hot/humid workspace (State A) and a cooler rest area (State B) using an RSPro IM-730 hygrometer.\nEngineered a DIY black globe thermometer (placing the sensor inside a black cylindrical container) to accurately estimate radiant heat exposure.\nCalculated the indoor Wet Bulb Globe Temperature (WBGT) to quantify the exact level of thermal strain.\nMapped the environmental data against ergonomic models (Niebel’s Work Design) for a worker producing 350 kcal/hr during seated, moderate arm work.\n\n\n\n\n\nPeak measurements in the simulated workspace revealed a WBGT of 31.06°C.\nIdentified that this specific thermal load poses a high risk of heat stress, theoretically requiring a 75% rest allowance which severely limits productivity.\nRecommended targeted interventions, including forced ventilation to enhance convective heat loss and strict, data-driven work-rest cycles.\n\n\nBusiness Impact: Demonstrated the ability to physically measure, model, and mitigate environmental constraints that directly impact human operational efficiency and safety compliance.\n\n\n\n\n\nTemperature and Humidity Modeling\n\n\n\nThermal Data Trends\n\n\nWBGT Heat Stress Exposure Limit Chart and DIY Globe Thermometer Application\n\n\n\n\n\n\nWGBT Chart\n\n\n\n\n\n\n\nDIY Instrumentation"
+  }
+]
