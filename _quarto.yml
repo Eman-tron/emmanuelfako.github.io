@@ -1,21 +1,44 @@
 project:
   type: website
+  resources:
+    - "images/ee_dashboard.pdf"
+    - "images/ergos_report.pdf"
+    - "images/supplier_decison.pdf"
 
 website:
-  title: "emmanuelfako.github.io"
+  title: "Emmanuel Fako | Industrial Engineer"
+  description: "Data-Driven Operations & Process Improvement"
+  favicon: "/images/icon.png"  # add a favicon later, looks more polished
   navbar:
+    background: dark            # gives the nav a dark bar instead of plain white
+    foreground: light
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: certifications.qmd
+        text: Certifications
+      - href: contact.qmd
+        text: Contact
+    right:
+      - icon: github
+        href: https://github.com/Eman-tron
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://linkedin.com/in/emmanuel-fako-773180364
+        aria-label: LinkedIn
+  page-footer:
+    center: "© 2026 Emmanuel Fako"  # simple footer, looks complete
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: litera
+      dark: darkly
     css: styles.css
-    toc: true
-
-
-
+    toc: false
+    smooth-scroll: true
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/(?:eman-tron\.github\.io|Eman-tron\.github\.io|localhost|127\.0\.0\.1)'
+    page-layout: full        # removes the default narrow column constraint

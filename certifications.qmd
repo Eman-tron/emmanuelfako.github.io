@@ -1,0 +1,23 @@
+---
+title: ""
+pagetitle: "Certifications | Emmanuel Fako"
+toc: false
+page-layout: full
+---
+
+::: {.section}
+
+
+# Certifications {.section-title}
+Professional and technical credentials across project management, supply chain, and data analytics.
+
+## Professional & Technical Credentials
+
+| Area | Certification | Issuing Organization | Year | Credential |
+|---|---|---|---|---|
+| Project Management | **Foundation Certificate in PM** (ICB4) | IPMA South Africa | 2025 | [View](certs/ipma_cert.pdf) |
+| SQL | **Intro to SQL** | Kaggle | 2026 | [View](certs/kaggle_basic_sql.PNG) |
+| SQL | **Advanced SQL** | Kaggle | 2026 | [View](certs/kaggle_advanced_sql.PNG) |
+| Supply Chain | **End-to-End Supply Chain Excellence** | Inchainge | 2024 | [View](certs/inchainge_cert.pdf) |
+
+:::

@@ -1,0 +1,35 @@
+---
+title: ""
+pagetitle: "Contact | Emmanuel Fako"
+toc: false
+page-layout: full
+---
+
+::: {.section}
+# Get in Touch {.section-title}
+
+```{=html}
+<div style="max-width: 600px; margin-top: 2.5rem;">
+  <form action="https://formspree.io/f/xykqdora" method="POST">
+    
+    <div class="mb-4">
+      <label for="name" class="form-label" style="font-weight: 500;">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required style="padding: 0.75rem;">
+    </div>
+    
+    <div class="mb-4">
+      <label for="email" class="form-label" style="font-weight: 500;">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required style="padding: 0.75rem;">
+    </div>
+    
+    <div class="mb-4">
+      <label for="message" class="form-label" style="font-weight: 500;">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="5" required style="padding: 0.75rem;"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" style="padding: 0.75rem 2rem; font-weight: 600;">Send Message</button>
+    
+  </form>
+</div>
+```
+:::

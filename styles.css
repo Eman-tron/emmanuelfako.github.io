@@ -1,1 +1,587 @@
 /* css styles */
+
+/* ── FONTS & ROOT CONFIGURATION ──────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+:root {
+  --bs-root-font-size: 15px;
+  font-size: 15px;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+  --accent-dark: #1d4ed8;
+  --text-main: #1a1a2e;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --bg-alt: #f8fafc;
+  --bg-main: #ffffff;
+  --card-bg: #ffffff;
+}
+
+/* ── DARK MODE OVERRIDES ───────── */
+html[data-theme="dark"],
+[data-bs-theme="dark"],
+body.quarto-dark {
+  --accent: #60a5fa;
+  --accent-light: #1e3a8a;
+  --accent-dark: #93c5fd;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --bg-alt: #0f172a;
+  --bg-main: #020617;
+  --card-bg: #0f172a;
+}
+
+/* ── GLOBAL BODY, PARAGRAPHS & LINKS ─────────────────── */
+body,
+p,
+li,
+td,
+th,
+label,
+input,
+textarea,
+button,
+.tag {
+  font-family: 'Inter', sans-serif !important;
+}
+
+body {
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--text-main);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+hr {
+  border-color: var(--border);
+  opacity: 0.6;
+  margin: 2rem 0;
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--bg-alt);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+  color: var(--text-main);
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ── NAVBAR & FOOTER ─────────────────────────────────── */
+.navbar {
+  padding: 0.9rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+body.quarto-dark .navbar {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: #ffffff !important;
+}
+
+.navbar .nav-link,
+.navbar .quarto-navigation-tool {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82) !important;
+  transition: color 0.2s;
+  text-decoration: none !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active,
+.navbar .quarto-navigation-tool:hover {
+  color: #ffffff !important;
+}
+
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  background-color: var(--bg-main) !important;
+}
+
+/* ── BUTTONS (Global + Hero) ─────────────────────────── */
+.btn-primary,
+a.btn-primary {
+  background: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  color: #ffffff !important;
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover,
+a.btn-primary:hover {
+  background: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.btn-secondary,
+a.btn-secondary {
+  margin-left: 0.75rem;
+  background: transparent !important;
+  color: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover,
+a.btn-secondary:hover {
+  background: var(--accent-light) !important;
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  transform: translateY(-2px);
+}
+
+/* ── PROFILE PICTURE & HERO SECTION ──────────────────── */
+.profile-pic {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 auto 1.5rem !important;
+  display: block;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hero p:has(> .profile-pic),
+.hero .quarto-figure:has(> .profile-pic) {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero {
+  padding: 4.5rem 2rem 3rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.hero h1 + p,
+section.hero > p:first-of-type {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+  letter-spacing: 0.01em;
+  margin-bottom: 1rem;
+}
+
+.hero .subtitle,
+.hero .subtitle p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+/* ── SECTIONS & HEADINGS (Fixing Quarto's <section class="section-title"> wrapper) ── */
+.section,
+main.content > section.level1 {
+  padding: 2.5rem 2rem 4rem;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/* Prevent Quarto's <section class="section-title"> wrapper from inflating body font-size or collapsing width */
+section.section-title {
+  font-size: 0.95rem !important;
+  display: block !important;
+  width: 100%;
+}
+
+section.section-title::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Scope .section-title styling and blue accent bar strictly to h1/h2 headings */
+h1.section-title,
+h2.section-title,
+section.section-title > h1,
+section.section-title > h2 {
+  font-size: 1.85rem !important;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none !important;
+  position: relative;
+  display: inline-block;
+}
+
+.section > section:first-of-type > h1.section-title,
+.section > section:first-of-type > h2.section-title,
+main.content > section.level1 > h1:first-of-type {
+  margin-top: 0.5rem;
+}
+
+h1.section-title::after,
+h2.section-title::after,
+section.section-title > h1::after,
+section.section-title > h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+/* Clean h2 & h3 inside sections */
+.section h2:not(.section-title),
+main.content section h2:not(.section-title) {
+  font-size: 1.45rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.section h3,
+main.content section h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.65rem;
+  color: var(--text-main);
+}
+
+.section ul,
+main.content section ul {
+  margin-bottom: 1.25rem;
+}
+
+.section p,
+.section li,
+main.content section p,
+main.content section li {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-main);
+}
+
+.section p em,
+main.content section p em {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ── PROJECT PAGE IMAGES ─────────────────────────────── */
+.section img:not(.profile-pic),
+main.content section:not(.project-card) img:not(.profile-pic) {
+  max-width: 640px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* ── PORTFOLIO CARDS ─────────────────────────────────── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 2rem;
+  padding: 1.5rem 0 2rem;
+  align-items: stretch;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent);
+}
+
+.project-card .quarto-figure,
+.project-card figure,
+.project-card > p:first-child {
+  margin: 0 !important;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-card .quarto-figure img,
+.project-card figure img,
+.project-card img.img-fluid,
+.project-card > p:first-child img {
+  width: 100% !important;
+  max-width: none !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  display: block !important;
+}
+
+/* Keep wide logos and diagrams (like Dizani and Ergonomics flowchart) completely uncropped */
+.project-card img[src*="dizani.png"],
+.project-card img[src*="ergospp.png"] {
+  object-fit: contain !important;
+  padding: 1.25rem !important;
+  background: #ffffff !important;
+}
+
+.project-card figcaption {
+  display: none !important;
+}
+
+.project-card .anchorjs-link {
+  display: none !important;
+}
+
+.project-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-card-body h3 {
+  font-size: 1.2rem !important;
+  line-height: 1.3;
+  margin-top: 0 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.project-card-body p {
+  color: var(--text-muted) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0.85rem;
+}
+
+.project-card-body p:last-child {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+}
+
+.project-card-body p:last-child a {
+  font-weight: 600;
+  color: var(--accent) !important;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+}
+
+/* ── TABLES (Tools, Skills & Certifications) ─────────── */
+.section table,
+main.content section table,
+table.table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg) !important;
+  --bs-table-bg: transparent !important;
+  --bs-table-striped-bg: transparent !important;
+}
+
+.section table thead th,
+main.content section table thead th,
+table.table thead th {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border: none !important;
+}
+
+.section table td,
+main.content section table td,
+table.table td {
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  color: var(--text-main) !important;
+  background-color: transparent !important;
+  border-top: 1px solid var(--border) !important;
+  vertical-align: top;
+}
+
+.section table tbody tr,
+main.content section table tbody tr,
+table.table tbody tr {
+  background-color: var(--bg-main) !important;
+}
+
+.section table tbody tr:nth-child(even),
+main.content section table tbody tr:nth-child(even),
+table.table tbody tr:nth-child(even) {
+  background-color: var(--bg-alt) !important;
+}
+
+.section table td:first-child,
+main.content section table td:first-child,
+table.table td:first-child {
+  font-weight: 600;
+  color: var(--accent) !important;
+  white-space: nowrap;
+}
+
+/* ── FORMS (Contact Page) ────────────────────────────── */
+.form-control {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2) !important;
+}
+
+.form-label {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ── MOBILE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --bs-root-font-size: 14px;
+    font-size: 14px;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 0.92rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero h1 + p {
+    font-size: 1rem;
+  }
+
+  .hero .subtitle {
+    font-size: 0.92rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  a.btn-primary,
+  a.btn-secondary {
+    font-size: 0.88rem;
+    padding: 0.6rem 1.25rem;
+    margin: 0.25rem;
+  }
+
+  .profile-pic {
+    max-width: 200px;
+  }
+
+  .section,
+  main.content > section.level1 {
+    padding: 1.75rem 1.25rem 3rem;
+  }
+
+  h1.section-title,
+  h2.section-title,
+  section.section-title > h1,
+  section.section-title > h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .section h3,
+  main.content section h3 {
+    font-size: 1.15rem;
+  }
+
+  .section table td:first-child,
+  main.content section table td:first-child,
+  table.table td:first-child {
+    white-space: normal;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

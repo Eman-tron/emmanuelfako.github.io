@@ -1,7 +1,80 @@
 ---
-title: "emmanuelfako.github.io"
+title: ""
+toc: false
+page-layout: full
 ---
 
-This is a Quarto website.
+::: {.hero}
+![](images/me.jpg){.profile-pic}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Emmanuel Fako
+Industrial Engineer
+
+::: {.subtitle}
+Data-driven operations and process improvement, turning complexity into clarity.
+:::
+
+[View My Work](portfolio.qmd){.btn-primary}
+[LinkedIn](https://linkedin.com/in/emmanuel-fako-773180364){.btn-secondary}
+:::
+
+::: {.section}
+## About Me {.section-title}
+
+I'm an Industrial Engineer with a focus on data analytics, operations, and process improvement. 
+I study at Stellenbosch University and have applied IE principles across two internships and a 
+range of academic projects spanning simulation, information systems, project management, supply chain, and machine learning.
+
+This portfolio is a living document, I'll keep adding work as I go.
+
+## Experience {.section-title}
+
+**Industrial Engineering Intern** · Dizani Consulting - Beekman Canopy Division
+*January 2025*
+
+- Conducted time studies on a fiberglass canopy manufacturing line to establish production baselines and identify inefficiencies
+- Applied Lean Manufacturing and Value Stream Mapping (VSM) to develop targeted improvement interventions
+- Contributed to raising Overall Equipment Effectiveness (OEE) from 72% to above 90%, formally recognised by site management
+- Established performance measurement standards and visual management systems for sustained gains
+
+**Industrial Engineering Intern** · Dizani Consulting - Coricraft
+*January 2025*
+
+- Supported migration of large-scale product data into Dizani's Per4ma operations platform
+- Cleaned, validated, and reformatted product datasets to enable accurate ticketing and real-time tracking
+- Gained exposure to warehouse systems and digital performance tools in a retail distribution environment
+
+**Industrial Engineering Intern** · Dizani Consulting - Alpine Furniture
+*January 2024*
+
+- Performed time studies to quantify throughput and identify a storage buffer area as the primary bottleneck
+- Designed and implemented a revised facility layout, relieving the bottleneck and improving production flow
+- Reorganised furniture covers storage to maximize unit capacity within existing floor space
+- Applied Lean methodologies and VSM to standardize processes and ongoing monitoring
+
+## Education {.section-title}
+
+**BEng Industrial Engineering** · Stellenbosch University
+*2022 - Present*
+
+-	Quality Assurance, Quality Management, Operations Research I & II, Data Analytics, Engineering Statistics, Manufacturing Systems, Production Management, Information Systems, Simulation, Enterprise Design, Industrial Ergonomics, Project Management, Engineering Economics, Industrial Management, Environmental Engineering
+
+## Technical Skills & Tools {.section-title}
+
+| Category | Tools & Skills |
+|:---|:---|
+| **Quality & Compliance** | Quality Assurance, Quality Management, Inspection & Validation, Standards Compliance, OEE Analysis, Defect Identification, 5S |
+| **Process Improvement** | Lean Manufacturing, Value Stream Mapping, Bottleneck Analysis, Time Studies, Waste Elimination, Facility Layout Design |
+| **Modelling & Analysis** | Simulation Modelling, Operations Research, Linear Programming, Engineering Statistics, Enterprise Design |
+| **Data & Reporting** | Advanced Excel (Pivot Tables, Solver, VBA), SQL, R, Data Cleaning & Validation, KPI Dashboards, Visual Management, Visio |
+| **Systems & Information** | Information Systems, Data Governance, Per4ma, Systems Analysis, Process Documentation |
+| **Project Management** | Planning & Scheduling, Risk Analysis, Resource Coordination, Stakeholder Communication (IPMA Certified) |
+| **Supply Chain** | End-to-End Value Chain Management, Inventory & Warehouse Operations, Performance Measurement |
+| **Design & Drafting** | Autodesk Inventor Professional (3D Modelling, Technical Drawings) |
+| **Software** | Microsoft Office Suite, Google Workspace |
+
+## Certifications {.section-title}
+
+
+[View All Certifications](certifications.qmd){.btn-primary}
+:::
