@@ -38,6 +38,7 @@ format:
       dark: darkly
     css: styles.css
     toc: false
+    lightbox: true
     smooth-scroll: true
     link-external-newwindow: true
     link-external-filter: '^(?:http:|https:)\/\/(?:eman-tron\.github\.io|Eman-tron\.github\.io|localhost|127\.0\.0\.1)'

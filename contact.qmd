@@ -8,8 +8,10 @@ page-layout: full
 ::: {.section}
 # Get in Touch {.section-title}
 
+Based in the Western Cape, South Africa · Connect directly on [LinkedIn](https://linkedin.com/in/emmanuel-fako-773180364) or [GitHub](https://github.com/Eman-tron), or send a message below.
+
 ```{=html}
-<div style="max-width: 600px; margin-top: 2.5rem;">
+<div style="max-width: 600px; margin-top: 2rem;">
   <form action="https://formspree.io/f/xykqdora" method="POST">
     
     <div class="mb-4">

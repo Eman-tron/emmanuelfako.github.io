@@ -348,7 +348,7 @@ main.content section:not(.project-card) img:not(.profile-pic) {
   height: 100%;
 }
 
-.project-card:hover {
+.project-card:not(.coming-soon-card):hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   border-color: var(--accent);
@@ -360,6 +360,11 @@ main.content section:not(.project-card) img:not(.profile-pic) {
   margin: 0 !important;
   background: #ffffff;
   border-bottom: 1px solid var(--border);
+}
+
+.project-card > p:first-child a {
+  display: block;
+  text-decoration: none !important;
 }
 
 .project-card .quarto-figure img,
@@ -406,6 +411,17 @@ main.content section:not(.project-card) img:not(.profile-pic) {
   margin-bottom: 0.6rem !important;
 }
 
+.project-card-body h3 a {
+  color: var(--text-main) !important;
+  font-family: 'DM Serif Display', serif !important;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+
+.project-card-body h3 a:hover {
+  color: var(--accent) !important;
+}
+
 .project-card-body p {
   color: var(--text-muted) !important;
   font-size: 0.92rem !important;
@@ -422,6 +438,80 @@ main.content section:not(.project-card) img:not(.profile-pic) {
 .project-card-body p:last-child a {
   font-weight: 600;
   color: var(--accent) !important;
+}
+
+/* ── COMING SOON PLACEHOLDER CARDS ───────────────────── */
+.coming-soon-card {
+  cursor: default;
+}
+
+.coming-soon-banner {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: #0f172a;
+}
+
+.coming-soon-bg {
+  position: absolute;
+  inset: -16px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+.coming-soon-bg.bg-ble {
+  background-image:
+    radial-gradient(circle at 22% 32%, rgba(56, 189, 248, 0.75) 0%, transparent 45%),
+    radial-gradient(circle at 78% 68%, rgba(37, 99, 235, 0.85) 0%, transparent 50%),
+    radial-gradient(circle at 52% 22%, rgba(16, 185, 129, 0.55) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.06) 0px, rgba(255, 255, 255, 0.06) 2px, transparent 2px, transparent 14px),
+    linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+}
+
+.coming-soon-bg.bg-erp {
+  background-image:
+    radial-gradient(circle at 28% 72%, rgba(99, 102, 241, 0.8) 0%, transparent 48%),
+    radial-gradient(circle at 76% 28%, rgba(37, 99, 235, 0.75) 0%, transparent 45%),
+    radial-gradient(circle at 48% 52%, rgba(14, 165, 233, 0.5) 0%, transparent 42%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 16px),
+    linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+
+.coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.coming-soon-badge {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.coming-soon-status {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 .tag {
@@ -584,4 +674,4 @@ table.table td:first-child {
   .project-grid {
     grid-template-columns: 1fr;
   }
-}
+}
