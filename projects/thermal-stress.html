@@ -48,6 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-34383ab407711c9051ff0c8b9a65adc8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dfa25673fad92089dabd8dce756b1c84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-34383ab407711c9051ff0c8b9a65adc8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -348,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Temperature and Humidity Modeling</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ergonomics_graphs.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ergonomics_graphs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Thermal Data Trends"><img src="../images/ergonomics_graphs.png" class="img-fluid figure-img" alt="Thermal Data Trends"></a></p>
 <figcaption>Thermal Data Trends</figcaption>
 </figure>
 </div>
@@ -358,7 +361,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/metabolicheat.png" class="img-fluid figure-img"></p>
+<p><a href="../images/metabolicheat.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="WGBT Chart"><img src="../images/metabolicheat.png" class="img-fluid figure-img" alt="WGBT Chart"></a></p>
 <figcaption>WGBT Chart</figcaption>
 </figure>
 </div>
@@ -366,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/diy_globe.png" class="img-fluid figure-img"></p>
+<p><a href="../images/diy_globe.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="DIY Instrumentation"><img src="../images/diy_globe.png" class="img-fluid figure-img" alt="DIY Instrumentation"></a></p>
 <figcaption>DIY Instrumentation</figcaption>
 </figure>
 </div>
@@ -377,7 +380,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="report" class="level2">
 <h2 class="anchored" data-anchor-id="report">Report</h2>
-<iframe src="../images/ergos_report.pdf" width="100%" height="600px" style="border: 1px solid #e5e7eb; border-radius: 8px;">
+<p><a href="../images/ergos_report.pdf" class="btn-secondary" target="_blank" style="margin-left: 0; margin-bottom: 1rem;">Open Full Report PDF ↗</a></p>
+<iframe src="../images/ergos_report.pdf" width="100%" height="600px" style="border: 1px solid var(--border); border-radius: 8px;">
 </iframe>
 </section>
 </section>
@@ -818,6 +822,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
