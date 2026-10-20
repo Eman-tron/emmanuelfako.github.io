@@ -34,7 +34,7 @@ A 12-week academic simulation project replicating the management of a $380,000 w
 * Achieved a Cost Performance Index (CPI) improvement from 0.63 to 0.86 over 12 periods.
 * Successfully closed out, recovering the schedule to finish only 7 days behind despite the many setbacks.
 
-> **Peer Testimonial:** *"Emmanuel impressed me with his ability to think analytically and his command of scheduling and budgeting. He immediately became familiar to the MS Project environment and played a significant role in helping us allocate our resources as efficiently as possible. During times of stress, his composed and concentrated demeanor served to stabilize the group."* — L. Coetser (Industrial Engineer)
+> **Peer Testimonial:** *"Emmanuel impressed me with his ability to think analytically and his command of scheduling and budgeting. He immediately became familiar to the MS Project environment and played a significant role in helping us allocate our resources as efficiently as possible. During times of stress, his composed and concentrated demeanor served to stabilize the group."* - L. Coetser (Industrial Engineer)
 
 [View Full Report](../images/pm_proj.pdf){.btn-primary}
 ---

@@ -112,7 +112,7 @@ Implemented LEAN methodologies and redesigned the Fibre Department's material st
 ```
 
 ::: {.project-card-body}
-### Final Year Project: BLESmart — Indoor BLE Localisation & Occupancy Detection
+### Final Year Project: BLESmart - Indoor BLE Localisation & Occupancy Detection
 [Final Year Project]{.tag} [IoT & ESP32]{.tag} [Machine Learning]{.tag} [Node-RED & MQTT]{.tag} [InfluxDB & Grafana]{.tag} [Python]{.tag}
 
 Engineered a low-cost edge-computing pipeline using an ESP32-C6 and BLE beacons to perform zone- and room-level spatial classification (WKNN & Random Forest) and privacy-preserving classroom occupancy estimation (Multiple Linear Regression) via MQTT, Node-RED, InfluxDB, and Grafana.
