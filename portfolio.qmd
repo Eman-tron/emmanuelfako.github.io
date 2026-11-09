@@ -11,6 +11,19 @@ A selection of academic and professional work.
 ::: {.project-grid}
 
 ::: {.project-card}
+[![Enterprise Maintenance ERP System](images/erp_eerd.png)](projects/maintenance-erp.qmd)
+
+::: {.project-card-body}
+### [Enterprise Resource Planning: Industrial Maintenance & Asset Management System](projects/maintenance-erp.qmd)
+[Enterprise Systems]{.tag} [MS SQL Server]{.tag} [C# .NET]{.tag} [Database Architecture]{.tag} [Systems Engineering]{.tag}
+
+Architected an end-to-end ERP maintenance subsystem for manufacturing operations, integrating MS SQL Server relational modeling with a C# .NET desktop application across 9 core maintenance events and executive KPIs.
+
+[Read more →](projects/maintenance-erp.qmd)
+:::
+:::
+
+::: {.project-card}
 [![OEE Optimization](images/dizani.png)](projects/dizani-2025.qmd)
 
 ::: {.project-card-body}
@@ -116,26 +129,6 @@ Implemented LEAN methodologies and redesigned the Fibre Department's material st
 [Final Year Project]{.tag} [IoT & ESP32]{.tag} [Machine Learning]{.tag} [Node-RED & MQTT]{.tag} [InfluxDB & Grafana]{.tag} [Python]{.tag}
 
 Engineered a low-cost edge-computing pipeline using an ESP32-C6 and BLE beacons to perform zone- and room-level spatial classification (WKNN & Random Forest) and privacy-preserving classroom occupancy estimation (Multiple Linear Regression) via MQTT, Node-RED, InfluxDB, and Grafana.
-
-[Case study coming soon]{.coming-soon-status}
-:::
-:::
-
-::: {.project-card .coming-soon-card}
-```{=html}
-<div class="coming-soon-banner">
-  <div class="coming-soon-bg bg-erp"></div>
-  <div class="coming-soon-overlay">
-    <span class="coming-soon-badge">Coming Soon</span>
-  </div>
-</div>
-```
-
-::: {.project-card-body}
-### Information Systems: Enterprise Maintenance ERP Module
-[Varsity]{.tag} [Information Systems]{.tag} [ERP Design]{.tag} [UML & EERD]{.tag} [MS SQL Server]{.tag} [Visual Studio]{.tag}
-
-Designed and implemented the Maintenance division module of a multi-department manufacturing ERP system. Modeled end-to-end user requirements using Extended Entity-Relationship Diagrams (EERDs), Data Dictionaries, UML Use Case and Activity Diagrams, and Data Flow Diagrams (DFDs), deployed with an MS SQL Server relational database and web interface.
 
 [Case study coming soon]{.coming-soon-status}
 :::
