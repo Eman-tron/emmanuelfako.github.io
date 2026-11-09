@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RootGuard: Ultra-Low-Power IoT Soil Telemetry Station | Emmanuel Fako – Emmanuel Fako | Industrial Engineer</title>
+<title>RootGuard: IoT Soil Moisture Monitor | Emmanuel Fako – Emmanuel Fako | Industrial Engineer</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -310,171 +310,51 @@ ul.task-list li input[type="checkbox"] {
 
 <section>
 <p><a href="../portfolio.html">← Back to Portfolio</a></p>
-<section id="rootguard-ultra-low-power-iot-soil-telemetry-station" class="level1 section-title">
-<h1 class="section-title">RootGuard: Ultra-Low-Power IoT Soil Telemetry Station</h1>
-<p><strong>Context:</strong> Personal Engineering Project · Embedded C++, ESP32-C5 RISC-V, Hardware Forensics &amp; Autodesk Inventor</p>
-<p>A bespoke, battery-powered soil moisture telemetry station engineered from scratch to prevent houseplant overwatering, combining 15 µA deep sleep, active RC sensor settling, schematic forensics, soldering rework, 3D CAD design, and a zero-heap-fragmentation captive web portal.</p>
+<section id="rootguard-iot-soil-moisture-monitor" class="level1 section-title">
+<h1 class="section-title">RootGuard: IoT Soil Moisture Monitor</h1>
+<p><strong>Context:</strong> Personal Project · ESP32-C5, Electronics &amp; Autodesk Inventor</p>
+<p>A battery-powered soil monitor built to stop me from overwatering my Monstera, used as a hands-on project to learn 3D CAD design, soldering, and low-power microcontroller programming.</p>
 <hr>
-<section id="the-motivation-saving-a-monstera-from-helicopter-parenting" class="level3">
-<h3 class="anchored" data-anchor-id="the-motivation-saving-a-monstera-from-helicopter-parenting">The Motivation: Saving a Monstera from “Helicopter Parenting”</h3>
+<section id="why-i-built-it" class="level3">
+<h3 class="anchored" data-anchor-id="why-i-built-it">Why I Built It</h3>
 <ul>
-<li><strong>The Problem:</strong> Houseplants, particularly the <em>Monstera deliciosa</em>, are notoriously vulnerable to root rot caused by overwatering. Visual and tactile top-soil checks are fundamentally unreliable because the top 2 cm of soil dries out rapidly while the deep root zone remains saturated.</li>
-<li><strong>The Objective:</strong> Rather than buying a cheap off-the-shelf plastic probe, I used the problem as a hands-on vehicle to master embedded systems from the ground up: ESP32-C5 RISC-V silicon architecture, schematic reading, hardware debugging, hand soldering, and mechanical CAD enclosure design.</li>
+<li><strong>The Plant Problem:</strong> I kept overwatering my <em>Monstera deliciosa</em>. The top couple of centimeters of soil would look dry, but the root zone underneath was still completely saturated.</li>
+<li><strong>The Excuse to Build:</strong> Instead of buying an off-the-shelf plastic moisture meter, I decided to make my own. It gave me a practical reason to get comfortable with CAD modeling in Autodesk Inventor, schematic reading, soldering rework, and embedded C++.</li>
 </ul>
 <hr>
 </section>
-<section id="system-architecture-hardware-stack" class="level3">
-<h3 class="anchored" data-anchor-id="system-architecture-hardware-stack">System Architecture &amp; Hardware Stack</h3>
+<section id="the-build" class="level3">
+<h3 class="anchored" data-anchor-id="the-build">The Build</h3>
 <ul>
-<li><strong>Microcontroller:</strong> DFRobot FireBeetle 2 ESP32-C5 (RISC-V core).</li>
-<li><strong>Capacitive Moisture Sensing:</strong> High-frequency capacitive probe chosen over resistive pins to eliminate copper trace corrosion and DC soil electrolysis.</li>
-<li><strong>Local Display:</strong> 0.96” I2C OLED (SSD1306, 128x64) providing immediate on-device telemetry.</li>
-<li><strong>Power &amp; Battery Telemetry:</strong> 500 mAh 3.7V LiPo cell monitored via the FireBeetle’s onboard 1M/1M high-impedance voltage divider (<code>IO1 / GPIO 1</code>).</li>
-<li><strong>Mechanical Housing:</strong> Custom multi-part enclosure designed in Autodesk Inventor and 3D printed with snap/screw tolerances, internal PCB bosses, battery retention, and a screen bezel.</li>
+<li><strong>The Hardware:</strong> Built around a DFRobot FireBeetle 2 ESP32-C5 board, a 0.96” I2C OLED screen, a small 500 mAh LiPo battery, and a capacitive soil probe (which measures soil capacitance rather than running current through the dirt, so it does not corrode like cheap resistive sensors).</li>
+<li><strong>The 3D-Printed Case:</strong> Modeled a custom enclosure in Autodesk Inventor with mounting bosses for the board, a slot for the battery, and a cutout for the screen. Leaving small 0.25 mm clearances meant everything snapped and screwed together cleanly on the first print.</li>
+<li><strong>How It Operates:</strong> The station sleeps most of the time to save battery. A quick tap of the button wakes the screen for 5 seconds to show current moisture, a trend arrow, and the battery level. Holding the button starts a temporary Wi-Fi hotspot so I can open a dashboard on my phone to view past readings or calibrate the sensor.</li>
 </ul>
 <hr>
 </section>
-<section id="mechanical-engineering-autodesk-inventor-enclosure-design" class="level3">
-<h3 class="anchored" data-anchor-id="mechanical-engineering-autodesk-inventor-enclosure-design">Mechanical Engineering: Autodesk Inventor Enclosure Design</h3>
-<p>To make the station self-contained and durable enough for wet soil environments, I modeled a custom multi-part enclosure in Autodesk Inventor:</p>
+<section id="hardware-bugs-learning-to-solder" class="level3">
+<h3 class="anchored" data-anchor-id="hardware-bugs-learning-to-solder">Hardware Bugs &amp; Learning to Solder</h3>
+<p>Getting the prototype to run reliably was the most interesting part of the project. The first version suffered from erratic wakeups, floating readings, and a battery that died within two days.</p>
+<p>Tracing the FireBeetle schematic and pinout definitions revealed a few real-world issues:</p>
 <ul>
-<li><strong>Tolerancing &amp; Component Packaging:</strong> Designed dedicated internal mounting bosses for the FireBeetle PCB, a snug lower bay for the 500 mAh LiPo battery, and a flush front bezel for the 0.96” OLED screen.</li>
-<li><strong>Ergonomics &amp; Cable Management:</strong> Integrated wire routing channels with strain relief for the capacitive probe cable, along with a tactile external button collar for mode switching.</li>
-<li><strong>First-Print Assembly:</strong> By calculating 0.25 mm press-fit clearances and accounting for 3D printer material shrinkage, the electronics, screen, and battery seated securely on the first physical print.</li>
+<li><strong>Wrong Wakeup Pin:</strong> The button was originally wired to a pin that sat outside the chip’s low-power wakeup domain.</li>
+<li><strong>The Sneaky Status LED:</strong> The sensor ground switch was shared with the board’s built-in green LED. Turning off the sensor accidentally lit the LED, secretly pulling 2-3 mA around the clock.</li>
+</ul>
+<p>To fix it, I learned how to solder and rework the board myself: * Desoldered and moved the button to a proper low-power wakeup pin (<code>GPIO 6</code>). * Changed the sensor pin mode in code to high-impedance (<code>Hi-Z</code>) during sleep so both the probe and the green LED shut off completely, dropping sleep current down to microamps.</p>
+<hr>
+</section>
+<section id="key-takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h3>
+<ul>
+<li><strong>Always check the schematic first:</strong> Reading pin routing and shared lines before wiring saves hours of debugging down the line.</li>
+<li><strong>Low-power is tricky:</strong> A single floating pin or an unaddressed status LED can quietly destroy battery life.</li>
+<li><strong>Designing for 3D printing:</strong> Measuring real component tolerances before modeling makes a huge difference between a messy fit and a clean first print.</li>
 </ul>
 <hr>
 </section>
-<section id="hardware-forensics-schematic-tracing-soldering-rework" class="level3">
-<h3 class="anchored" data-anchor-id="hardware-forensics-schematic-tracing-soldering-rework">Hardware Forensics, Schematic Tracing &amp; Soldering Rework</h3>
-<p>The initial prototype assembly was soldered by a lecturer, but real-world testing quickly surfaced critical electrical conflicts: floating ground references, erratic wakeups, false 100% moisture spikes, and CPU panics (<code>Store access fault</code>) when attempting sleep states.</p>
-<p>Diving into the FireBeetle 2 ESP32-C5 schematics, board variant definitions (<code>pins_arduino.h</code>), and Espressif silicon errata revealed three major hardware bugs:</p>
-<ol type="1">
-<li><strong>Unrouted Header Pins:</strong> Multiple pins on the left-side header rail were unrouted <code>NC</code> (No Connection) lines, causing floating ground references during initial sensor reads.</li>
-<li><strong>Low-Power (LP) Wakeup Domain Conflict:</strong> The external trigger button had initially been wired to <code>D9 (GPIO 28)</code>. Schematic tracing revealed GPIO 28 is shared with the onboard <code>BOOT</code> switch and sits outside the ESP32-C5’s Low-Power (LP) sleep domain, preventing button wakeups.</li>
-<li><strong>Shared <code>LED_BUILTIN</code> Parasitic Drain on <code>D13 (GPIO 15)</code>:</strong> The sensor ground switch was wired to <code>D13 (GPIO 15)</code>, which physically shares a circuit with the active-HIGH green User LED. Driving GPIO 15 <code>OUTPUT HIGH</code> to disconnect sensor ground during sleep inadvertently sourced 2-3 mA through the LED 24/7, draining the battery and reverse-biasing the probe.</li>
-</ol>
-<p><strong>Hands-On Rework:</strong> I learned to solder and reworked the board personally, desoldering the wake button and relocating it to a true Low-Power pin (<code>D12 / GPIO 6</code>). In firmware, I re-engineered the <code>D13 (GPIO 15)</code> ground switch to act as a true open-drain sink: driving <code>OUTPUT LOW</code> (0V) only when sampling, and switching to high-impedance (<code>INPUT / Hi-Z</code>) with pull-ups disabled during sleep, eliminating the parasitic drain down to true 0 µA.</p>
-<hr>
-</section>
-<section id="firmware-architecture-ultra-low-power-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="firmware-architecture-ultra-low-power-engineering">Firmware Architecture &amp; Ultra-Low-Power Engineering</h3>
-<ul>
-<li><strong>True Deep Sleep (~15 µA) &amp; Pad Isolation:</strong> Implemented ESP32-C5 Deep Sleep (<code>esp_deep_sleep_start()</code>) using <code>EXT1</code> low-level wakeup on LP <code>GPIO 6</code>. Pin states on <code>GPIO 0</code> (<code>3V3_C</code>) and <code>GPIO 6</code> are latched via <code>gpio_hold_en()</code>. After <code>Wire.end()</code>, I2C lines (<code>SDA</code>/<code>SCL</code>) are explicitly floated to <code>INPUT</code> so the OLED is not back-powered through its ESD diodes.</li>
-<li><strong>Active RC Settling Detection (<code>waitForSensorSettle</code>):</strong> When powering the capacitive probe from 0V, its onboard 555 timer must charge its RC output filter from 0V (which registers as 100% wet) to steady state (~2.2V dry). Instead of an inefficient blind delay, the firmware polls the charging curve until consecutive samples plateau within &lt;= 12 ADC counts, followed by a 16-sample interquartile trimmed-mean filter (discarding 4 lowest and 4 highest outliers, averaging the middle 8).</li>
-<li><strong>Pre-Load Battery Caching &amp; Brownout Guard:</strong> Unloaded LiPo voltage is sampled and cached <em>before</em> enabling the sensor rail or Wi-Fi radio (~180 mA load) to prevent battery internal resistance voltage sag from distorting telemetry. A 10-point piecewise-linear discharge curve maps voltage to real state of charge, backed by a <code>&lt; 3.32V</code> brownout guard that triggers a 12-hour deep hibernation when depleted.</li>
-<li><strong>State Persistence Across Sleep:</strong> Critical counters and calibration parameters persist in <code>RTC_DATA_ATTR</code> slow memory across deep-sleep cycles. If power is ever severed, an O(1) tail-seek routine (<code>recoverStateFromFS()</code>) restores the last sample ID and timestamp from LittleFS.</li>
-</ul>
-<hr>
-</section>
-<section id="tri-mode-operation-zero-heap-web-architecture" class="level3">
-<h3 class="anchored" data-anchor-id="tri-mode-operation-zero-heap-web-architecture">Tri-Mode Operation &amp; Zero-Heap Web Architecture</h3>
-<p>The firmware balances power conservation with user accessibility through three operating modes:</p>
-<ol type="1">
-<li><strong>Automated Background Logging (Every 4 Hours):</strong> Headless wakeup (keeping OLED and Wi-Fi powered down), samples unloaded battery voltage, powers sensor, waits for RC settling, appends filtered reading to <code>/history.csv</code> on LittleFS (with automatic 128 KB log rotation to <code>/history_old.csv</code>), and sleeps in under 450 ms.</li>
-<li><strong>Short Button Tap (5-Second Glance Mode):</strong> Initializes the OLED at power-saving contrast, rendering current moisture with a large 2x readout, trend badge (<code>+3</code>, <code>-2</code>, <code>~0</code>), status pill (<code>DRY!</code>, <code>OPTIMAL</code>, <code>WET</code>), battery gauge, and a 1px animated sleep countdown bar.</li>
-<li><strong>Long Button Hold (Wi-Fi Captive Portal):</strong> Holding the button displays a 1.8-second progress bar, then launches the <code>Plant-Monitor</code> SoftAP and an embedded DNS Captive Portal.</li>
-</ol>
-<p><strong>Zero-Heap Web Architecture:</strong> To prevent heap fragmentation in RAM, the web server seeks directly to the tail of <code>/history.csv</code>, loads the last 60 samples into a 1.6 KB stack-allocated circular buffer, and streams HTML/SVG responses via chunked HTTP transfer (<code>PROGMEM</code> + <code>server.sendContent()</code>).</p>
-<p><strong>Browser-Injected Time Sync:</strong> Because the board operates offline without an external hardware RTC, the web dashboard executes an automatic background JavaScript fetch (<code>fetch('/settime?epoch=...')</code>) upon connection. This synchronizes the ESP32-C5’s internal RTC to South African Standard Time (<code>SAST-2</code>) and persists the timestamp to LittleFS.</p>
-<hr>
-</section>
-<section id="technical-specifications-summary" class="level3">
-<h3 class="anchored" data-anchor-id="technical-specifications-summary">Technical Specifications Summary</h3>
-<ul>
-<li><strong>Microcontroller:</strong> ESP32-C5 RISC-V (DFRobot FireBeetle 2)</li>
-<li><strong>Sleep Power Consumption:</strong> ~15 µA (Deep Sleep with pad latching &amp; Hi-Z ground isolation)</li>
-<li><strong>Sensing Methodology:</strong> 555-timer high-frequency capacitive probe with active RC settling</li>
-<li><strong>ADC Filtering:</strong> 16-sample in-place interquartile trimmed-mean filter</li>
-<li><strong>Storage &amp; Persistence:</strong> LittleFS flash filesystem with 128 KB rotation, NVS flash calibration, and <code>RTC_DATA_ATTR</code> memory</li>
-<li><strong>Web Architecture:</strong> ESP32 WebServer with DNS captive portal, chunked HTTP streaming, and zero heap allocations</li>
-<li><strong>CAD Software:</strong> Autodesk Inventor (Parametric multi-part assembly)</li>
-</ul>
-<hr>
-</section>
-<section id="visual-interfaces-hardware-architecture" class="level3">
-<h3 class="anchored" data-anchor-id="visual-interfaces-hardware-architecture">Visual Interfaces &amp; Hardware Architecture</h3>
-<p><strong>Local OLED Display Interface (Glance Mode)</strong> <em>High-contrast local readout displaying sample counter, battery telemetry, dynamic trend badge, status pill, and threshold markers.</em></p>
-<div style="max-width: 520px; margin: 1.5rem auto 2.5rem; background: #050811; border: 2px solid #0ea5e9; border-radius: 12px; padding: 1.25rem 1.5rem; color: #38bdf8; font-family: monospace; box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
-  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 0.5rem; color: #facc15; font-size: 0.85rem; font-weight: bold;">
-    <span>#142</span>
-    <span>BAT: 88% [4.02V]</span>
-    <span style="border: 1px solid #facc15; padding: 0.1rem 0.35rem; border-radius: 3px;">■■■□</span>
-  </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
-    <div style="font-size: 2.8rem; font-weight: bold; line-height: 1; color: #38bdf8;">
-      64%
-    </div>
-    <div style="text-align: right;">
-      <span style="background: #065f46; color: #34d399; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.85rem; margin-right: 0.5rem;">+3 Δ</span>
-      <span style="background: #10b981; color: #042f2e; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">OPTIMAL</span>
-    </div>
-  </div>
-  <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">
-    ADC: 1784 | 15 µA DEEP SLEEP
-  </div>
-  <div style="position: relative; width: 100%; height: 10px; background: #1e293b; border-radius: 5px; overflow: hidden; margin-bottom: 0.75rem;">
-    <div style="width: 64%; height: 100%; background: linear-gradient(90deg, #10b981, #06b6d4);"></div>
-    <div style="position: absolute; left: 25%; top: 0; bottom: 0; width: 2px; background: #f43f5e;" title="Dry threshold"></div>
-    <div style="position: absolute; left: 75%; top: 0; bottom: 0; width: 2px; background: #f43f5e;" title="Wet threshold"></div>
-  </div>
-  <div style="width: 75%; height: 2px; background: #38bdf8; border-radius: 1px;" title="Sleep timer countdown"></div>
-</div>
-<hr>
-<p><strong>Captive Web Portal Dashboard Layout</strong> <em>Streamed, responsive control panel featuring top KPI cards, shaded optimal moisture band chart, and in-field calibration controls.</em></p>
-<div style="max-width: 680px; margin: 1.5rem auto 2.5rem; background: var(--card-bg, #ffffff); border: 1px solid var(--border, #e2e8f0); border-radius: 10px; padding: 1.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
-  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border, #e2e8f0); padding-bottom: 0.75rem; margin-bottom: 1rem;">
-    <div>
-      <strong style="font-size: 1.1rem; color: var(--text-main, #0f172a);">RootGuard Web Telemetry</strong>
-      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">SoftAP: Plant-Monitor (192.168.4.1)</div>
-    </div>
-    <span style="background: #10b981; color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">LIVE</span>
-  </div>
-  
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem;">
-    <div style="background: var(--bg, #f8fafc); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border, #e2e8f0); text-align: center;">
-      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">Soil Moisture</div>
-      <div style="font-size: 1.5rem; font-weight: bold; color: #0284c7;">64%</div>
-      <div style="font-size: 0.7rem; color: #10b981; font-weight: 600;">OPTIMAL</div>
-    </div>
-    <div style="background: var(--bg, #f8fafc); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border, #e2e8f0); text-align: center;">
-      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">LiPo Battery</div>
-      <div style="font-size: 1.5rem; font-weight: bold; color: #10b981;">88%</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted, #64748b);">4.02V Unloaded</div>
-    </div>
-    <div style="background: var(--bg, #f8fafc); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border, #e2e8f0); text-align: center;">
-      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">Flash Storage</div>
-      <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-main, #334155);">#142</div>
-      <div style="font-size: 0.7rem; color: var(--text-muted, #64748b);">24 KB / 1.4 MB</div>
-    </div>
-  </div>
-
-  <div style="border: 1px solid var(--border, #e2e8f0); border-radius: 8px; padding: 0.75rem; background: var(--bg, #f8fafc);">
-    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.5rem;">
-      <span style="font-weight: 600;">Historical Moisture Trend (Last 60 Samples)</span>
-      <span style="color: #10b981; font-size: 0.75rem;">Optimal Range: 25% - 75%</span>
-    </div>
-    <svg viewbox="0 0 500 120" style="width: 100%; height: auto; display: block;">
-      <rect x="0" y="30" width="500" height="60" fill="#10b981" opacity="0.12"></rect>
-      <line x1="0" y1="30" x2="500" y2="30" stroke="#f43f5e" stroke-dasharray="3,3" stroke-width="1"></line>
-      <line x1="0" y1="90" x2="500" y2="90" stroke="#f43f5e" stroke-dasharray="3,3" stroke-width="1"></line>
-      <path d="M 0 45 Q 60 55 120 40 T 240 50 T 360 65 T 500 52" fill="none" stroke="#0284c7" stroke-width="2.5"></path>
-      <circle cx="500" cy="52" r="4" fill="#0284c7"></circle>
-    </svg>
-  </div>
-</div>
-<hr>
-</section>
-<section id="project-photo-wishlist-in-action-gallery" class="level3">
-<h3 class="anchored" data-anchor-id="project-photo-wishlist-in-action-gallery">Project Photo Wishlist &amp; In-Action Gallery</h3>
-<blockquote class="blockquote">
-<p>[!NOTE] Physical project photos and CAD assembly renders are currently being photographed. Below are the designated slots for real-world images:</p>
-<ol type="1">
-<li><strong>Autodesk Inventor CAD Model:</strong> 3D exploded assembly view showing tolerances, PCB bosses, and OLED mounting bezel.</li>
-<li><strong>Reworked Circuit &amp; Wiring:</strong> Macro close-up of the FireBeetle 2 board highlighting the desoldered <code>D12 (GPIO 6)</code> wake pin and <code>D13 (GPIO 15)</code> open-drain isolation.</li>
-<li><strong>Physical OLED Glance Mode:</strong> Macro photograph of the 0.96” display active on the plant pot.</li>
-<li><strong>RootGuard in the Monstera Pot:</strong> The fully assembled, 3D-printed station deployed in the plant root zone.</li>
-</ol>
-</blockquote>
+<section id="photos-build-log-coming-soon" class="level3">
+<h3 class="anchored" data-anchor-id="photos-build-log-coming-soon">Photos &amp; Build Log (Coming Soon)</h3>
+<p><em>Photos of the Autodesk Inventor model, the reworked board, and the sensor sitting in the Monstera pot will be added here soon.</em></p>
 </section>
 </section>
 </section>
