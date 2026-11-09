@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="probe" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle circuit grid lines -->
+  <g stroke="#334155" stroke-width="1" opacity="0.3" fill="none">
+    <path d="M50 80 H 750 M50 160 H 750 M50 240 H 750 M50 320 H 750 M50 400 H 750"/>
+    <path d="M120 40 V 460 M260 40 V 460 M400 40 V 460 M540 40 V 460 M680 40 V 460"/>
+    <circle cx="260" cy="160" r="4" fill="#0ea5e9"/>
+    <circle cx="540" cy="320" r="4" fill="#10b981"/>
+    <circle cx="400" cy="80" r="4" fill="#06b6d4"/>
+  </g>
+
+  <!-- Enclosure Box -->
+  <g filter="url(#shadow)">
+    <rect x="220" y="70" width="360" height="320" rx="20" fill="#182234" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="235" y="85" width="330" height="290" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+
+    <!-- Mounting bosses at corners -->
+    <circle cx="245" cy="95" r="5" fill="#334155" stroke="#64748b"/>
+    <circle cx="555" cy="95" r="5" fill="#334155" stroke="#64748b"/>
+    <circle cx="245" cy="365" r="5" fill="#334155" stroke="#64748b"/>
+    <circle cx="555" cy="365" r="5" fill="#334155" stroke="#64748b"/>
+
+    <!-- 0.96 inch OLED Display Bezel -->
+    <rect x="270" y="115" width="260" height="150" rx="8" fill="#050811" stroke="#0ea5e9" stroke-width="1.5"/>
+
+    <!-- OLED Content (Yellow-Blue SSD1306 vibe) -->
+    <!-- Top Bar (Yellow area) -->
+    <text x="285" y="135" font-family="monospace" font-size="11" font-weight="bold" fill="#facc15">#142</text>
+    <text x="360" y="135" font-family="monospace" font-size="11" font-weight="bold" fill="#facc15">BAT 88% [4.02V]</text>
+    <rect x="495" y="125" width="22" height="11" rx="2" fill="none" stroke="#facc15" stroke-width="1.5"/>
+    <rect x="497" y="127" width="16" height="7" fill="#facc15"/>
+    <rect x="517" y="128" width="2" height="5" fill="#facc15"/>
+    <line x1="270" y1="145" x2="530" y2="145" stroke="#334155" stroke-width="1"/>
+
+    <!-- Main Moisture Readout (Cyan area) -->
+    <text x="285" y="195" font-family="system-ui, sans-serif" font-size="38" font-weight="bold" fill="#38bdf8">64%</text>
+    <rect x="385" y="170" width="42" height="18" rx="4" fill="#065f46"/>
+    <text x="393" y="183" font-family="monospace" font-size="10" font-weight="bold" fill="#34d399">+3 Δ</text>
+
+    <!-- Status Badge -->
+    <rect x="440" y="168" width="76" height="22" rx="4" fill="#10b981"/>
+    <text x="449" y="183" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#042f2e">OPTIMAL</text>
+
+    <!-- Raw ADC & Mode -->
+    <text x="285" y="215" font-family="monospace" font-size="9" fill="#94a3b8">ADC: 1784 | 15uA DEEP SLEEP</text>
+
+    <!-- Progress Bar with thresholds -->
+    <rect x="285" y="228" width="230" height="8" rx="3" fill="#1e293b"/>
+    <rect x="285" y="228" width="147" height="8" rx="3" fill="url(#glow)"/>
+    <!-- 25% and 75% tick marks -->
+    <line x1="342" y1="225" x2="342" y2="239" stroke="#f43f5e" stroke-width="1.5"/>
+    <line x1="457" y1="225" x2="457" y2="239" stroke="#f43f5e" stroke-width="1.5"/>
+
+    <!-- Sleep countdown line -->
+    <line x1="285" y1="250" x2="480" y2="250" stroke="#38bdf8" stroke-width="2"/>
+
+    <!-- Enclosure Details Below OLED -->
+    <!-- Tactile Button -->
+    <circle cx="340" cy="320" r="14" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <circle cx="340" cy="320" r="10" fill="#0284c7"/>
+    <text x="365" y="324" font-family="monospace" font-size="10" fill="#cbd5e1">LP WAKE (GPIO 6)</text>
+
+    <!-- Status LED (Hi-Z during sleep) -->
+    <circle cx="470" cy="320" r="6" fill="#10b981" stroke="#34d399" stroke-width="1.5"/>
+    <text x="485" y="324" font-family="monospace" font-size="10" fill="#94a3b8">STATUS</text>
+  </g>
+
+  <!-- Capacitive Probe extending downwards -->
+  <g filter="url(#shadow)">
+    <path d="M385 390 L 385 460 Q 385 480 400 480 Q 415 480 415 460 L 415 390 Z" fill="url(#probe)" stroke="#38bdf8" stroke-width="1.5"/>
+    <line x1="400" y1="410" x2="400" y2="465" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+    <text x="425" y="440" font-family="monospace" font-size="9" fill="#38bdf8">CAPACITIVE SENSOR</text>
+  </g>
+
+  <!-- Branding Badge / Title Header -->
+  <rect x="40" y="40" width="160" height="28" rx="6" fill="#0284c7" opacity="0.2"/>
+  <text x="50" y="59" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#38bdf8" letter-spacing="1.5">ESP32-C5 RISC-V</text>
+
+  <text x="40" y="450" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#f8fafc">RootGuard</text>
+  <text x="40" y="475" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Ultra-Low-Power Plant Telemetry Station</text>
+
+  <!-- Right Spec Tags -->
+  <g font-family="monospace" font-size="10" fill="#94a3b8">
+    <rect x="620" y="40" width="140" height="22" rx="4" fill="#1e293b"/>
+    <text x="630" y="55" fill="#38bdf8">PWR: ~15 µA Deep Sleep</text>
+
+    <rect x="620" y="70" width="140" height="22" rx="4" fill="#1e293b"/>
+    <text x="630" y="85" fill="#34d399">CAD: Autodesk Inventor</text>
+
+    <rect x="620" y="100" width="140" height="22" rx="4" fill="#1e293b"/>
+    <text x="630" y="115" fill="#facc15">UI: 0.96" I2C SSD1306</text>
+
+    <rect x="620" y="130" width="140" height="22" rx="4" fill="#1e293b"/>
+    <text x="630" y="145" fill="#cbd5e1">WEB: Captive SoftAP</text>
+  </g>
+</svg>
