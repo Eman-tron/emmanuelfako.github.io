@@ -37,13 +37,13 @@ Led process optimization initiatives at Coricraft and Beekman Canopies, digitizi
 :::
 
 ::: {.project-card}
-[![RootGuard IoT Soil Station](images/rootguard_card.png)](projects/rootguard.qmd)
+[![RootGuard Soil Monitor](images/rootguard_card.png)](projects/rootguard.qmd)
 
 ::: {.project-card-body}
-### [RootGuard: Ultra-Low-Power IoT Soil Moisture Telemetry Station](projects/rootguard.qmd)
-[Personal Project]{.tag} [IoT & Embedded C++]{.tag} [ESP32-C5 RISC-V]{.tag} [Autodesk Inventor]{.tag} [Hardware Debugging]{.tag} [Low-Power Firmware]{.tag}
+### [RootGuard: IoT Soil Moisture Monitor](projects/rootguard.qmd)
+[Personal Project]{.tag} [ESP32-C5]{.tag} [Autodesk Inventor]{.tag} [Soldering & Electronics]{.tag} [C++]{.tag}
 
-Engineered a custom, battery-powered soil moisture telemetry station for a houseplant from scratch, tackling ESP32-C5 RISC-V hardware debugging, soldering rework, 15 µA deep sleep, Autodesk Inventor CAD enclosure design, and a zero-heap-fragmentation web portal.
+A battery-powered soil monitor built to keep my Monstera alive. Designed a 3D-printed case in Autodesk Inventor, learned to solder while tracking down hardware bugs, and wrote low-power ESP32 firmware with an on-demand web dashboard.
 
 [Read more →](projects/rootguard.qmd)
 :::
