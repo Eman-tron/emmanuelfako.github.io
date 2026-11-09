@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>RootGuard: Ultra-Low-Power IoT Soil Telemetry Station | Emmanuel Fako – Emmanuel Fako | Industrial Engineer</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//images/icon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-34383ab407711c9051ff0c8b9a65adc8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-dfa25673fad92089dabd8dce756b1c84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-34383ab407711c9051ff0c8b9a65adc8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Emmanuel Fako | Industrial Engineer</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../certifications.html"> 
+<span class="menu-text">Certifications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Eman-tron"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/emmanuel-fako-773180364"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<section>
+<p><a href="../portfolio.html">← Back to Portfolio</a></p>
+<section id="rootguard-ultra-low-power-iot-soil-telemetry-station" class="level1 section-title">
+<h1 class="section-title">RootGuard: Ultra-Low-Power IoT Soil Telemetry Station</h1>
+<p><strong>Context:</strong> Personal Engineering Project · Embedded C++, ESP32-C5 RISC-V, Hardware Forensics &amp; Autodesk Inventor</p>
+<p>A bespoke, battery-powered soil moisture telemetry station engineered from scratch to prevent houseplant overwatering, combining 15 µA deep sleep, active RC sensor settling, schematic forensics, soldering rework, 3D CAD design, and a zero-heap-fragmentation captive web portal.</p>
+<hr>
+<section id="the-motivation-saving-a-monstera-from-helicopter-parenting" class="level3">
+<h3 class="anchored" data-anchor-id="the-motivation-saving-a-monstera-from-helicopter-parenting">The Motivation: Saving a Monstera from “Helicopter Parenting”</h3>
+<ul>
+<li><strong>The Problem:</strong> Houseplants, particularly the <em>Monstera deliciosa</em>, are notoriously vulnerable to root rot caused by overwatering. Visual and tactile top-soil checks are fundamentally unreliable because the top 2 cm of soil dries out rapidly while the deep root zone remains saturated.</li>
+<li><strong>The Objective:</strong> Rather than buying a cheap off-the-shelf plastic probe, I used the problem as a hands-on vehicle to master embedded systems from the ground up: ESP32-C5 RISC-V silicon architecture, schematic reading, hardware debugging, hand soldering, and mechanical CAD enclosure design.</li>
+</ul>
+<hr>
+</section>
+<section id="system-architecture-hardware-stack" class="level3">
+<h3 class="anchored" data-anchor-id="system-architecture-hardware-stack">System Architecture &amp; Hardware Stack</h3>
+<ul>
+<li><strong>Microcontroller:</strong> DFRobot FireBeetle 2 ESP32-C5 (RISC-V core).</li>
+<li><strong>Capacitive Moisture Sensing:</strong> High-frequency capacitive probe chosen over resistive pins to eliminate copper trace corrosion and DC soil electrolysis.</li>
+<li><strong>Local Display:</strong> 0.96” I2C OLED (SSD1306, 128x64) providing immediate on-device telemetry.</li>
+<li><strong>Power &amp; Battery Telemetry:</strong> 500 mAh 3.7V LiPo cell monitored via the FireBeetle’s onboard 1M/1M high-impedance voltage divider (<code>IO1 / GPIO 1</code>).</li>
+<li><strong>Mechanical Housing:</strong> Custom multi-part enclosure designed in Autodesk Inventor and 3D printed with snap/screw tolerances, internal PCB bosses, battery retention, and a screen bezel.</li>
+</ul>
+<hr>
+</section>
+<section id="mechanical-engineering-autodesk-inventor-enclosure-design" class="level3">
+<h3 class="anchored" data-anchor-id="mechanical-engineering-autodesk-inventor-enclosure-design">Mechanical Engineering: Autodesk Inventor Enclosure Design</h3>
+<p>To make the station self-contained and durable enough for wet soil environments, I modeled a custom multi-part enclosure in Autodesk Inventor:</p>
+<ul>
+<li><strong>Tolerancing &amp; Component Packaging:</strong> Designed dedicated internal mounting bosses for the FireBeetle PCB, a snug lower bay for the 500 mAh LiPo battery, and a flush front bezel for the 0.96” OLED screen.</li>
+<li><strong>Ergonomics &amp; Cable Management:</strong> Integrated wire routing channels with strain relief for the capacitive probe cable, along with a tactile external button collar for mode switching.</li>
+<li><strong>First-Print Assembly:</strong> By calculating 0.25 mm press-fit clearances and accounting for 3D printer material shrinkage, the electronics, screen, and battery seated securely on the first physical print.</li>
+</ul>
+<hr>
+</section>
+<section id="hardware-forensics-schematic-tracing-soldering-rework" class="level3">
+<h3 class="anchored" data-anchor-id="hardware-forensics-schematic-tracing-soldering-rework">Hardware Forensics, Schematic Tracing &amp; Soldering Rework</h3>
+<p>The initial prototype assembly was soldered by a lecturer, but real-world testing quickly surfaced critical electrical conflicts: floating ground references, erratic wakeups, false 100% moisture spikes, and CPU panics (<code>Store access fault</code>) when attempting sleep states.</p>
+<p>Diving into the FireBeetle 2 ESP32-C5 schematics, board variant definitions (<code>pins_arduino.h</code>), and Espressif silicon errata revealed three major hardware bugs:</p>
+<ol type="1">
+<li><strong>Unrouted Header Pins:</strong> Multiple pins on the left-side header rail were unrouted <code>NC</code> (No Connection) lines, causing floating ground references during initial sensor reads.</li>
+<li><strong>Low-Power (LP) Wakeup Domain Conflict:</strong> The external trigger button had initially been wired to <code>D9 (GPIO 28)</code>. Schematic tracing revealed GPIO 28 is shared with the onboard <code>BOOT</code> switch and sits outside the ESP32-C5’s Low-Power (LP) sleep domain, preventing button wakeups.</li>
+<li><strong>Shared <code>LED_BUILTIN</code> Parasitic Drain on <code>D13 (GPIO 15)</code>:</strong> The sensor ground switch was wired to <code>D13 (GPIO 15)</code>, which physically shares a circuit with the active-HIGH green User LED. Driving GPIO 15 <code>OUTPUT HIGH</code> to disconnect sensor ground during sleep inadvertently sourced 2-3 mA through the LED 24/7, draining the battery and reverse-biasing the probe.</li>
+</ol>
+<p><strong>Hands-On Rework:</strong> I learned to solder and reworked the board personally, desoldering the wake button and relocating it to a true Low-Power pin (<code>D12 / GPIO 6</code>). In firmware, I re-engineered the <code>D13 (GPIO 15)</code> ground switch to act as a true open-drain sink: driving <code>OUTPUT LOW</code> (0V) only when sampling, and switching to high-impedance (<code>INPUT / Hi-Z</code>) with pull-ups disabled during sleep, eliminating the parasitic drain down to true 0 µA.</p>
+<hr>
+</section>
+<section id="firmware-architecture-ultra-low-power-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="firmware-architecture-ultra-low-power-engineering">Firmware Architecture &amp; Ultra-Low-Power Engineering</h3>
+<ul>
+<li><strong>True Deep Sleep (~15 µA) &amp; Pad Isolation:</strong> Implemented ESP32-C5 Deep Sleep (<code>esp_deep_sleep_start()</code>) using <code>EXT1</code> low-level wakeup on LP <code>GPIO 6</code>. Pin states on <code>GPIO 0</code> (<code>3V3_C</code>) and <code>GPIO 6</code> are latched via <code>gpio_hold_en()</code>. After <code>Wire.end()</code>, I2C lines (<code>SDA</code>/<code>SCL</code>) are explicitly floated to <code>INPUT</code> so the OLED is not back-powered through its ESD diodes.</li>
+<li><strong>Active RC Settling Detection (<code>waitForSensorSettle</code>):</strong> When powering the capacitive probe from 0V, its onboard 555 timer must charge its RC output filter from 0V (which registers as 100% wet) to steady state (~2.2V dry). Instead of an inefficient blind delay, the firmware polls the charging curve until consecutive samples plateau within &lt;= 12 ADC counts, followed by a 16-sample interquartile trimmed-mean filter (discarding 4 lowest and 4 highest outliers, averaging the middle 8).</li>
+<li><strong>Pre-Load Battery Caching &amp; Brownout Guard:</strong> Unloaded LiPo voltage is sampled and cached <em>before</em> enabling the sensor rail or Wi-Fi radio (~180 mA load) to prevent battery internal resistance voltage sag from distorting telemetry. A 10-point piecewise-linear discharge curve maps voltage to real state of charge, backed by a <code>&lt; 3.32V</code> brownout guard that triggers a 12-hour deep hibernation when depleted.</li>
+<li><strong>State Persistence Across Sleep:</strong> Critical counters and calibration parameters persist in <code>RTC_DATA_ATTR</code> slow memory across deep-sleep cycles. If power is ever severed, an O(1) tail-seek routine (<code>recoverStateFromFS()</code>) restores the last sample ID and timestamp from LittleFS.</li>
+</ul>
+<hr>
+</section>
+<section id="tri-mode-operation-zero-heap-web-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="tri-mode-operation-zero-heap-web-architecture">Tri-Mode Operation &amp; Zero-Heap Web Architecture</h3>
+<p>The firmware balances power conservation with user accessibility through three operating modes:</p>
+<ol type="1">
+<li><strong>Automated Background Logging (Every 4 Hours):</strong> Headless wakeup (keeping OLED and Wi-Fi powered down), samples unloaded battery voltage, powers sensor, waits for RC settling, appends filtered reading to <code>/history.csv</code> on LittleFS (with automatic 128 KB log rotation to <code>/history_old.csv</code>), and sleeps in under 450 ms.</li>
+<li><strong>Short Button Tap (5-Second Glance Mode):</strong> Initializes the OLED at power-saving contrast, rendering current moisture with a large 2x readout, trend badge (<code>+3</code>, <code>-2</code>, <code>~0</code>), status pill (<code>DRY!</code>, <code>OPTIMAL</code>, <code>WET</code>), battery gauge, and a 1px animated sleep countdown bar.</li>
+<li><strong>Long Button Hold (Wi-Fi Captive Portal):</strong> Holding the button displays a 1.8-second progress bar, then launches the <code>Plant-Monitor</code> SoftAP and an embedded DNS Captive Portal.</li>
+</ol>
+<p><strong>Zero-Heap Web Architecture:</strong> To prevent heap fragmentation in RAM, the web server seeks directly to the tail of <code>/history.csv</code>, loads the last 60 samples into a 1.6 KB stack-allocated circular buffer, and streams HTML/SVG responses via chunked HTTP transfer (<code>PROGMEM</code> + <code>server.sendContent()</code>).</p>
+<p><strong>Browser-Injected Time Sync:</strong> Because the board operates offline without an external hardware RTC, the web dashboard executes an automatic background JavaScript fetch (<code>fetch('/settime?epoch=...')</code>) upon connection. This synchronizes the ESP32-C5’s internal RTC to South African Standard Time (<code>SAST-2</code>) and persists the timestamp to LittleFS.</p>
+<hr>
+</section>
+<section id="technical-specifications-summary" class="level3">
+<h3 class="anchored" data-anchor-id="technical-specifications-summary">Technical Specifications Summary</h3>
+<ul>
+<li><strong>Microcontroller:</strong> ESP32-C5 RISC-V (DFRobot FireBeetle 2)</li>
+<li><strong>Sleep Power Consumption:</strong> ~15 µA (Deep Sleep with pad latching &amp; Hi-Z ground isolation)</li>
+<li><strong>Sensing Methodology:</strong> 555-timer high-frequency capacitive probe with active RC settling</li>
+<li><strong>ADC Filtering:</strong> 16-sample in-place interquartile trimmed-mean filter</li>
+<li><strong>Storage &amp; Persistence:</strong> LittleFS flash filesystem with 128 KB rotation, NVS flash calibration, and <code>RTC_DATA_ATTR</code> memory</li>
+<li><strong>Web Architecture:</strong> ESP32 WebServer with DNS captive portal, chunked HTTP streaming, and zero heap allocations</li>
+<li><strong>CAD Software:</strong> Autodesk Inventor (Parametric multi-part assembly)</li>
+</ul>
+<hr>
+</section>
+<section id="visual-interfaces-hardware-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="visual-interfaces-hardware-architecture">Visual Interfaces &amp; Hardware Architecture</h3>
+<p><strong>Local OLED Display Interface (Glance Mode)</strong> <em>High-contrast local readout displaying sample counter, battery telemetry, dynamic trend badge, status pill, and threshold markers.</em></p>
+<div style="max-width: 520px; margin: 1.5rem auto 2.5rem; background: #050811; border: 2px solid #0ea5e9; border-radius: 12px; padding: 1.25rem 1.5rem; color: #38bdf8; font-family: monospace; box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 0.5rem; color: #facc15; font-size: 0.85rem; font-weight: bold;">
+    <span>#142</span>
+    <span>BAT: 88% [4.02V]</span>
+    <span style="border: 1px solid #facc15; padding: 0.1rem 0.35rem; border-radius: 3px;">■■■□</span>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
+    <div style="font-size: 2.8rem; font-weight: bold; line-height: 1; color: #38bdf8;">
+      64%
+    </div>
+    <div style="text-align: right;">
+      <span style="background: #065f46; color: #34d399; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.85rem; margin-right: 0.5rem;">+3 Δ</span>
+      <span style="background: #10b981; color: #042f2e; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">OPTIMAL</span>
+    </div>
+  </div>
+  <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">
+    ADC: 1784 | 15 µA DEEP SLEEP
+  </div>
+  <div style="position: relative; width: 100%; height: 10px; background: #1e293b; border-radius: 5px; overflow: hidden; margin-bottom: 0.75rem;">
+    <div style="width: 64%; height: 100%; background: linear-gradient(90deg, #10b981, #06b6d4);"></div>
+    <div style="position: absolute; left: 25%; top: 0; bottom: 0; width: 2px; background: #f43f5e;" title="Dry threshold"></div>
+    <div style="position: absolute; left: 75%; top: 0; bottom: 0; width: 2px; background: #f43f5e;" title="Wet threshold"></div>
+  </div>
+  <div style="width: 75%; height: 2px; background: #38bdf8; border-radius: 1px;" title="Sleep timer countdown"></div>
+</div>
+<hr>
+<p><strong>Captive Web Portal Dashboard Layout</strong> <em>Streamed, responsive control panel featuring top KPI cards, shaded optimal moisture band chart, and in-field calibration controls.</em></p>
+<div style="max-width: 680px; margin: 1.5rem auto 2.5rem; background: var(--card-bg, #ffffff); border: 1px solid var(--border, #e2e8f0); border-radius: 10px; padding: 1.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border, #e2e8f0); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+    <div>
+      <strong style="font-size: 1.1rem; color: var(--text-main, #0f172a);">RootGuard Web Telemetry</strong>
+      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">SoftAP: Plant-Monitor (192.168.4.1)</div>
+    </div>
+    <span style="background: #10b981; color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">LIVE</span>
+  </div>
+  
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem;">
+    <div style="background: var(--bg, #f8fafc); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border, #e2e8f0); text-align: center;">
+      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">Soil Moisture</div>
+      <div style="font-size: 1.5rem; font-weight: bold; color: #0284c7;">64%</div>
+      <div style="font-size: 0.7rem; color: #10b981; font-weight: 600;">OPTIMAL</div>
+    </div>
+    <div style="background: var(--bg, #f8fafc); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border, #e2e8f0); text-align: center;">
+      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">LiPo Battery</div>
+      <div style="font-size: 1.5rem; font-weight: bold; color: #10b981;">88%</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted, #64748b);">4.02V Unloaded</div>
+    </div>
+    <div style="background: var(--bg, #f8fafc); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border, #e2e8f0); text-align: center;">
+      <div style="font-size: 0.75rem; color: var(--text-muted, #64748b);">Flash Storage</div>
+      <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-main, #334155);">#142</div>
+      <div style="font-size: 0.7rem; color: var(--text-muted, #64748b);">24 KB / 1.4 MB</div>
+    </div>
+  </div>
+
+  <div style="border: 1px solid var(--border, #e2e8f0); border-radius: 8px; padding: 0.75rem; background: var(--bg, #f8fafc);">
+    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.5rem;">
+      <span style="font-weight: 600;">Historical Moisture Trend (Last 60 Samples)</span>
+      <span style="color: #10b981; font-size: 0.75rem;">Optimal Range: 25% - 75%</span>
+    </div>
+    <svg viewbox="0 0 500 120" style="width: 100%; height: auto; display: block;">
+      <rect x="0" y="30" width="500" height="60" fill="#10b981" opacity="0.12"></rect>
+      <line x1="0" y1="30" x2="500" y2="30" stroke="#f43f5e" stroke-dasharray="3,3" stroke-width="1"></line>
+      <line x1="0" y1="90" x2="500" y2="90" stroke="#f43f5e" stroke-dasharray="3,3" stroke-width="1"></line>
+      <path d="M 0 45 Q 60 55 120 40 T 240 50 T 360 65 T 500 52" fill="none" stroke="#0284c7" stroke-width="2.5"></path>
+      <circle cx="500" cy="52" r="4" fill="#0284c7"></circle>
+    </svg>
+  </div>
+</div>
+<hr>
+</section>
+<section id="project-photo-wishlist-in-action-gallery" class="level3">
+<h3 class="anchored" data-anchor-id="project-photo-wishlist-in-action-gallery">Project Photo Wishlist &amp; In-Action Gallery</h3>
+<blockquote class="blockquote">
+<p>[!NOTE] Physical project photos and CAD assembly renders are currently being photographed. Below are the designated slots for real-world images:</p>
+<ol type="1">
+<li><strong>Autodesk Inventor CAD Model:</strong> 3D exploded assembly view showing tolerances, PCB bosses, and OLED mounting bezel.</li>
+<li><strong>Reworked Circuit &amp; Wiring:</strong> Macro close-up of the FireBeetle 2 board highlighting the desoldered <code>D12 (GPIO 6)</code> wake pin and <code>D13 (GPIO 15)</code> open-drain isolation.</li>
+<li><strong>Physical OLED Glance Mode:</strong> Macro photograph of the 0.96” display active on the plant pot.</li>
+<li><strong>RootGuard in the Monstera Pot:</strong> The fully assembled, 3D-printed station deployed in the plant root zone.</li>
+</ol>
+</blockquote>
+</section>
+</section>
+</section>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/\/(?:eman-tron\.github\.io|Eman-tron\.github\.io|localhost|127\.0\.0\.1)");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Emmanuel Fako</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
