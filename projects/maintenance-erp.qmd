@@ -17,96 +17,89 @@ An enterprise-grade maintenance management subsystem designed for manufacturing 
 ---
 
 ### The Problem
-* **Unscheduled Downtime & Communication Gaps:** Equipment failures in modern manufacturing facilities create severe bottlenecks. At Laatu Manufacturing Ultd., maintenance interventions, machine breakdown reporting, and technician assignments were handled across fragmented records, causing delayed repair responses and untracked machine downtime.
-* **Disconnected Inventory & Cost Tracking:** Spare parts usage during emergency repairs was not automatically decremented from inventory, leading to unrecorded stock-outs, inaccurate unit repair cost calculations, and a lack of auditability.
-* **Absence of Executive Decision Support:** Plant managers lacked aggregated operational metrics (such as recurring failure rates by machine model, technician labor efficiency, and scheduled vs reactive maintenance expenditure) required for long-term capital allocation and reliability engineering.
+* **Fragmented Tracking & Unscheduled Downtime:** Machine breakdowns and maintenance interventions were recorded across disparate paper and spreadsheet logs, delaying technician response times and leaving equipment downtime untracked.
+* **Disconnected Spares & Inaccurate Costing:** Spare parts consumed during repairs were not automatically reconciled with warehouse inventory, causing stock-outs and distorted repair cost calculations.
+* **Absence of Executive Decision Support:** Operations leadership lacked consolidated metrics (such as failure frequency by machine model, technician repair benchmarks, and scheduled vs reactive maintenance spend) needed for capital planning.
 
 ### The Approach & Systems Architecture
-* **Systems Architecture & Technical Lead:** Served as the lead technical architect within a collaborative delivery team, taking primary ownership of the underlying relational database architecture (Global EERD), cross-module data dependencies, and the implementation of complex multi-table transactional events. Assisted team members across module boundaries to ensure data consistency between production, maintenance, and inventory workflows.
-* **Relational Database Design (3NF):** Designed the comprehensive enterprise schema in MS SQL Server, enforcing Third Normal Form (3NF) across all operational entities (`Machines`, `MachineStatus`, `FailureTypes`, `Failures`, `Repairs`, `SpareParts`, `Repairs_SpareParts`, and `ScheduledMaintenance`). Configured primary/foreign key constraints, audit logging, and referential integrity to prevent orphan repair logs or negative inventory states.
-* **Process Modeling & Data Flow Architecture:** Formulated formal Context Diagrams and Level 0 Data Flow Diagrams (DFDs) decomposing the maintenance lifecycle into discrete, event-driven processes. Defined rigorous data dictionaries and state transition boundaries for preventative servicing and breakdown interventions.
-* **C# .NET Desktop Application:** Developed a modular Windows Forms interface in Microsoft Visual Studio, connecting directly to the MS SQL Server backend via ADO.NET. Built structured data-entry forms with parameterised queries to prevent SQL injection, enforced input validation (e.g., date-time logic, numeric hour verification), and dynamic cascading dropdowns for equipment and failure codes.
-* **Automated Cost & Inventory Reconciliation:** Engineered backend transactional logic that automatically calculates total repair cost (technician hourly rates multiplied by repair duration plus consumed spare parts unit prices) and decrements warehouse stock upon work order sign-off.
+* **Systems Architecture & Technical Lead:** Spearheaded the data architecture within a collaborative team, taking primary ownership of the Global EERD, inter-module data dependencies, and complex multi-table transactional workflows. Guided team members across module boundaries to ensure schema consistency between production, maintenance, and inventory.
+* **Normalized Relational Schema (3NF):** Designed the database in MS SQL Server, enforcing Third Normal Form (3NF) across all operational entities (`Machines`, `FailureTypes`, `Failures`, `Repairs`, `SpareParts`, `Repairs_SpareParts`, `ScheduledMaintenance`) with strict referential integrity, automated audit timestamps, and cascading constraints.
+* **C# .NET Desktop Application & ADO.NET:** Developed a modular Windows Forms interface in Visual Studio 2022 with parameterised queries, input validation, and transactional business logic that decrements warehouse stock and calculates total repair costs upon work-order sign-off.
 
 ---
 
-### Core Business Events & Logic Matrix
+### Core Transactional Workflows
 
-The maintenance subsystem coordinates 9 operational events and 3 executive management reporting events across the manufacturing lifecycle:
+While the subsystem coordinates 9 operational events and 3 executive reports, four multi-entity transactional workflows formed the operational core:
 
-| Event Code | Event Name | Operational Trigger | Database Tables Affected | Business Logic & Integrity Constraints |
-|:---|:---|:---|:---|:---|
-| **MT1** | Register New Failure Type | Engineering creates new standardized error code | `FailureTypes` | Validates uniqueness of failure code and records standard expected repair duration to baseline technician performance. |
-| **MT2** | Record Machine Failure | Floor operator logs equipment breakdown | `Failures`, `Machines`, `MachineStatus` | Automatically flags machine status to "Down", records exact failure timestamp, logs reported symptoms, and alerts maintenance dispatch. |
-| **MT3** | Perform Machine Repair & Spares Issue | Technician completes physical machine repair | `Repairs`, `Repairs_SpareParts`, `SpareParts`, `Machines` | Captures labor hours, root-cause failure classification, and allocated spare parts with quantities; automatically updates inventory and recalculates machine status to "Operational". |
-| **MT4** | Schedule Preventative Maintenance | Maintenance planner sets calendar service | `ScheduledMaintenance`, `Machines` | Validates service schedules against operational shifts, assigns qualified technicians, and flags upcoming planned maintenance shutdowns. |
-| **MT5** | Add New Maintenance Component | Procurement registers new replacement part | `SpareParts` | Initializes component catalog entry with part number, manufacturer specifications, minimum reorder thresholds, and opening unit cost. |
-| **MT6** | Reconcile Spare Inventory Levels | Stock adjustment or physical inventory count | `SpareParts` | Adjusts physical stock on hand, checks for inventory threshold breaches, and triggers reorder notifications. |
-| **MT7** | Update Spare Unit Price | Supplier updates replacement component pricing | `SpareParts`, `SpareParts_Audit` | Logs effective date of price adjustments while preserving historical cost snapshots for previously completed work orders. |
-| **MT8** | Standard Failure Frequency Analysis | Reliability engineer queries failure trends | `Failures`, `FailureTypes` | Aggregates breakdown occurrences by equipment category and failure code across user-specified date ranges to isolate recurring root causes. |
-| **MT9** | Repair Cost Calculation by Failure Type | Plant accountant requests failure financial rollup | `Repairs`, `Repairs_SpareParts`, `SpareParts`, `Employees` | Sums technician labor expense (hours × hourly rate) and consumed parts expense (quantity × unit cost) grouped by standard failure category. |
-| **EM2** | Maintenance Expenditure per Fiscal Period | Executive management quarterly cost review | `Repairs`, `SpareParts`, `ScheduledMaintenance` | Compares preventative maintenance investments versus reactive breakdown costs against allocated departmental budgets. |
-| **EM14** | Operator Failure Exposure Analysis | Plant management assesses training needs | `Failures`, `Machines`, `Employees` | Cross-references operator shift rosters with breakdown timestamps to determine if specific failure modes correlate with operator shifts. |
-| **EM15** | Technician Repair Performance & Workload | Maintenance superintendent evaluates crew output | `Repairs`, `Employees`, `FailureTypes` | Tracks individual technician repair durations against standard expected benchmark minutes and monitors post-repair recurrence rates. |
+* **Machine Breakdown Logging (MT2):** Floor operators log equipment failures with immediate status transition of `MachineStatus` to "Down", recording exact failure timestamps, symptom descriptions, and triggering technician dispatch.
+* **Repair Execution & Spare Parts Reconciliation (MT3):** Technicians record labor hours, classify root causes against standard failure codes, and issue replacement components via the `Repairs_SpareParts` junction table. The transaction automatically decrements live stock and resets machine status to "Operational".
+* **Preventative Maintenance Scheduling (MT4):** Planners configure recurring service intervals based on operational calendars or runtime thresholds, managing technician availability and minimizing planned shutdown conflicts.
+* **Repair Cost Accounting Rollup (MT9):** Multi-table financial calculation summing technician labor expense (hours × hourly rate) and consumed parts expense (quantity × unit cost) grouped by standardized failure category for accounting and reliability engineering.
+
+```{=html}
+<details style="margin-top: 1.5rem; margin-bottom: 2rem; padding: 1rem 1.25rem; background: var(--card-bg, #f8f9fa); border: 1px solid var(--border, #e9ecef); border-radius: 8px; cursor: pointer;">
+  <summary style="font-weight: 600; color: var(--text-main, #212529);">
+    View Complete 12-Event Lifecycle Catalog (MT1-MT9 & EM2, EM14, EM15)
+  </summary>
+  <div style="margin-top: 1rem; overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--border, #dee2e6); text-align: left;">
+          <th style="padding: 0.5rem;">Code</th>
+          <th style="padding: 0.5rem;">Event Name</th>
+          <th style="padding: 0.5rem;">Operational Trigger</th>
+          <th style="padding: 0.5rem;">Key Tables</th>
+          <th style="padding: 0.5rem;">Business Logic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT1</strong></td><td style="padding: 0.5rem;">Register Failure Type</td><td style="padding: 0.5rem;">Engineering defines failure code</td><td style="padding: 0.5rem;"><code>FailureTypes</code></td><td style="padding: 0.5rem;">Enforces unique error codes and records expected repair benchmarks.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT2</strong></td><td style="padding: 0.5rem;">Record Machine Failure</td><td style="padding: 0.5rem;">Floor operator logs breakdown</td><td style="padding: 0.5rem;"><code>Failures</code>, <code>Machines</code></td><td style="padding: 0.5rem;">Sets machine status to "Down" and alerts maintenance dispatch.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT3</strong></td><td style="padding: 0.5rem;">Perform Machine Repair</td><td style="padding: 0.5rem;">Technician completes work order</td><td style="padding: 0.5rem;"><code>Repairs</code>, <code>Repairs_SpareParts</code></td><td style="padding: 0.5rem;">Allocates spares, decrements inventory, and resets status to "Operational".</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT4</strong></td><td style="padding: 0.5rem;">Schedule Maintenance</td><td style="padding: 0.5rem;">Planner sets calendar service</td><td style="padding: 0.5rem;"><code>ScheduledMaintenance</code></td><td style="padding: 0.5rem;">Validates shift availability and assigns qualified technicians.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT5</strong></td><td style="padding: 0.5rem;">Add New Spares Item</td><td style="padding: 0.5rem;">Procurement enters new part</td><td style="padding: 0.5rem;"><code>SpareParts</code></td><td style="padding: 0.5rem;">Initializes reorder thresholds and opening unit purchase cost.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT6</strong></td><td style="padding: 0.5rem;">Reconcile Spare Stock</td><td style="padding: 0.5rem;">Stocktake count adjustment</td><td style="padding: 0.5rem;"><code>SpareParts</code></td><td style="padding: 0.5rem;">Adjusts physical stock on hand and flags threshold breaches.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT7</strong></td><td style="padding: 0.5rem;">Update Spare Unit Price</td><td style="padding: 0.5rem;">Supplier updates component pricing</td><td style="padding: 0.5rem;"><code>SpareParts</code>, <code>Audit</code></td><td style="padding: 0.5rem;">Logs effective price dates while preserving historical work-order costs.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT8</strong></td><td style="padding: 0.5rem;">Standard Failure Frequency</td><td style="padding: 0.5rem;">Reliability engineer queries trends</td><td style="padding: 0.5rem;"><code>Failures</code>, <code>FailureTypes</code></td><td style="padding: 0.5rem;">Aggregates breakdown occurrences across selectable date windows.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>MT9</strong></td><td style="padding: 0.5rem;">Repair Cost Calculation</td><td style="padding: 0.5rem;">Accountant requests cost rollup</td><td style="padding: 0.5rem;"><code>Repairs</code>, <code>SpareParts</code></td><td style="padding: 0.5rem;">Rolls up labor and parts cost by failure code.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>EM2</strong></td><td style="padding: 0.5rem;">Periodic Maintenance Cost</td><td style="padding: 0.5rem;">Executive quarterly cost review</td><td style="padding: 0.5rem;"><code>Repairs</code>, <code>ScheduledMaint</code></td><td style="padding: 0.5rem;">Compares preventative investments vs reactive repair spend against budgets.</td></tr>
+        <tr style="border-bottom: 1px solid var(--border, #eee);"><td style="padding: 0.5rem;"><strong>EM14</strong></td><td style="padding: 0.5rem;">Operator Failure Correlation</td><td style="padding: 0.5rem;">Operations reviews training needs</td><td style="padding: 0.5rem;"><code>Failures</code>, <code>Employees</code></td><td style="padding: 0.5rem;">Cross-references breakdown timestamps with operator shift logs.</td></tr>
+        <tr><td style="padding: 0.5rem;"><strong>EM15</strong></td><td style="padding: 0.5rem;">Technician Repair Audit</td><td style="padding: 0.5rem;">Maintenance manager reviews crew</td><td style="padding: 0.5rem;"><code>Repairs</code>, <code>Employees</code></td><td style="padding: 0.5rem;">Tracks actual repair durations against standard benchmark minutes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+```
 
 ---
 
-### Technical Specifications Summary
-
-* **Relational Database:** Microsoft SQL Server (3NF Schema, Primary/Foreign Key Referential Integrity, Stored Procedures, Views).
-* **Application Framework:** C# .NET Windows Forms (Microsoft Visual Studio 2022).
-* **Data Access Layer:** ADO.NET with Parameterised SQL Queries.
-* **Modeling & Architecture Methodologies:** Extended Entity-Relationship Diagrams (EERD), Data Dictionaries, Context Diagrams, Level 0 Data Flow Diagrams (DFDs), UML Use Case and Activity Diagrams.
-
----
-
-### Project Visuals & Architectural Diagrams
+### Project Visuals & System Architecture
 
 **Global Enterprise Entity-Relationship Diagram (EERD)**
-*The complete relational schema modeling entity sets, recursive relationships, weak entities, and foreign key constraints across the enterprise maintenance domain.*
+*The complete relational schema modeling entity sets, recursive relationships, and foreign key constraints across the maintenance domain.*
 
 ![Global EERD](../images/erp_eerd.png)
 
 ---
 
-**System Architecture: Level 0 Data Flow Diagram (DFD)**
-*Event-driven process decomposition illustrating data pipelines, data stores (D1-D8), and inter-departmental data flows between Manufacturing, Maintenance, and Executive Management.*
+**Level 0 Data Flow Diagram (DFD)**
+*Process decomposition illustrating data pipelines, data stores (D1-D8), and inter-departmental data flows between Manufacturing, Maintenance, and Executive Management.*
 
 ![Level 0 Data Flow Diagram](../images/erp_dfd_level0_clean.png)
 
 ---
 
-**System Context Diagram**
-*High-level process boundary showing information exchange between external organizational entities and the Maintenance Subsystem.*
+**C# .NET Application & Executive Reporting Interfaces**
 
-![Context Diagram](../images/erp_context_diagram.png)
+::: {layout-ncol=2}
+![Preventative Maintenance Scheduling Form](../images/erp_scheduled_maintenance_form.png)
 
----
+![Repair Details & Spares Issuing Form](../images/erp_repair_details_form.png)
 
-**C# .NET Application Interfaces**
+![Operator Failure Correlation Report (EM14)](../images/erp_operator_report.png)
 
-**Preventative Maintenance Scheduling Form**
-*Interface for assigning technicians, defining service intervals, and queuing planned maintenance work orders.*
-
-![Scheduled Maintenance Form](../images/erp_scheduled_maintenance_form.png)
-
-**Machine Repair Details & Spare Parts Allocation Form**
-*Interface used by technicians to log repair hours, assign standard failure classifications, and allocate warehouse replacement parts.*
-
-![Repair Details Form](../images/erp_repair_details_form.png)
-
----
-
-**Executive Reporting & Decision Support**
-
-**Operator Machine Failure Correlation (EM14)**
-*Audit reporting module correlating machine breakdowns with active shift operators to detect operational anomalies.*
-
-![Operator Failure Report](../images/erp_operator_report.png)
-
-**Technician Repair Performance & Resolution Analysis (EM15)**
-*Operational tracking module reporting individual repair times, components consumed, and labor allocation.*
-
-![Technician Performance Detail](../images/erp_technician_detail.png)
+![Technician Repair Performance Report (EM15)](../images/erp_technician_detail.png)
+:::
 
 :::
