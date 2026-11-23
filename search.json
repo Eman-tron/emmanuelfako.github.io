@@ -42,6 +42,41 @@
     "text": "← Back to Portfolio\n\nLEAN Implementation & Buffer Optimization\nContext: Vacation Training 351 (2024) · Dizani Consulting & Bravo Brands\nA foundational industrial engineering internship focused on time studies, waste elimination, and physical layout redesign.\n\n\nThe Problem\n\nThe Bravo Lounge division manufactured 45,000 pieces of furniture a month but suffered from underutilized storage areas and inefficient material flow.\nThe factory had a long-term operational goal to create a First-In-First-Out (FIFO) buffer capable of holding two days’ worth of work (136 suites) spread across the bridge, the fibre department, and the foam cutting department.\n\n\n\nThe Approach\n\nConducted detailed time and motion studies in the foam cutting department to establish baseline standard times for the factory.\nAnalyzed the physical layout of the Fibre Department, identifying that racks were only being utilized on one side due to poor spatial orientation.\nExecuted a Phase 1 action plan to remove unused racks from the seaming department, replace them with sorting tables, and rotate the orientation of the remaining racks in the Fibre department to maximize accessibility.\n\n\n\nThe Outcome\n\nSuccessfully reoriented the Fibre Department storage layout so both sides of the racks could be utilized, significantly increasing local storage capacity and ease of access.\nThis first-phase implementation successfully moved the factory closer to its overarching 136-suite buffer target before the project was formally handed over at the completion of the internship.\nEarned a highly positive performance review, securing a return internship offer for the 2025 cycle.\n\n\nEmployer Testimonial: “Overall, Emmanuel was productive and enriching… His knowledge and skills acquired during this period will contribute positively to his academic and future career pursuits. Looking forward to round two!” - T. Els, Dizani Consulting\n\n\nVacation Training Certificate →\nNote on Confidentiality: Out of respect for client intellectual property and proprietary operations, specific process flowcharts, raw time study data, and internal software interfaces have been omitted or redacted from this public portfolio.\n\n\nProject Visuals\nContinuous Improvement: Stock Buffer Optimization \nTime & Motion Study Data Collection"
   },
   {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Portfolio\nA selection of academic and professional work.\n\n\n\n\n\nBLESmart walkthrough showing the floor plan and doorway\n\n\n\nBLESmart | Indoor Localisation & Occupancy Estimation\nFinal Year Project ESP32 & BLE Python Node-RED\nI built a Bluetooth prototype to answer two questions: which room am I in, and how many people are in a classroom? I tested it across five rooms and compared its occupancy estimates with manual headcounts.\nView case study →\n\n\n\n\n\n\nEnterprise Maintenance ERP System\n\n\n\nEnterprise Resource Planning: Industrial Maintenance & Asset Management System\nEnterprise Systems MS SQL Server C# .NET Database Architecture Systems Engineering\nArchitected an end-to-end ERP maintenance subsystem for manufacturing operations, integrating MS SQL Server relational modeling with a C# .NET desktop application across 9 core maintenance events and executive KPIs.\nRead more →\n\n\n\n\n\n\nOEE Optimization\n\n\n\nInternship 2025: Dizani x Coricraft x Beekman - OEE Optimization & Digital Tracking\nInternship OEE LEAN Process Improvement\nLed process optimization initiatives at Coricraft and Beekman Canopies, digitizing performance tracking and driving laminating team OEE from 72% to over 90%.\nRead more →\n\n\n\n\n\n\nRootGuard Soil Monitor\n\n\n\nRootGuard: IoT Soil Moisture Monitor\nPersonal Project ESP32-C5 Autodesk Inventor Soldering & Electronics C++\nA battery-powered soil monitor built to keep my Monstera alive. Designed a 3D-printed case in Autodesk Inventor, learned to solder while tracking down hardware bugs, and wrote low-power ESP32 firmware with an on-demand web dashboard.\nRead more →\n\n\n\n\n\n\nPortfolio Tracker Dashboard\n\n\n\nEasyEquities Portfolio Tracker\nPython C# .NET OCR Excel Automation Finance Machine Learning\nBuilt a C# desktop application and Python script to extract portfolio data from screenshots using OCR (Optical Character Recognition) and automatically update a custom Excel tracking dashboard.\nRead more →\n\n\n\n\n\n\nWind Turbine Clustering\n\n\n\nData Analytics: Wind Turbine Operational Analysis & Clustering\nVarsity Data Analytics R Clustering\nSegmented 60-feature turbine sensor data into 3 operational clusters using SOM and K-Means, enabling predictive maintenance decisions.\nRead more →\n\n\n\n\n\n\nTakealot Smart Distribution Warehouse\n\n\n\nProject Management: Automated Smart Distribution Warehouse\nVarsity Project Management MS Project Resource Optimization Risk\nLed the scheduling, baseline architecture, and resource strategy for a 12-period Project Management simulation, securing a 1st-place cohort finish.\nRead more →\n\n\n\n\n\n\nThe Fresh Connection Supply Chain\n\n\n\nSupply Chain Strategy: The Fresh Connection\nVarsity Supply Chain Purchasing Data Analysis Optimization\nFulfilled the role of Purchasing Manager for a massive simulated fruit juice company, executing an efficiency-driven strategy across 6 rounds to achieve an 80% final grade and a 5th-place finish.\nRead more →\n\n\n\n\n\n\nThermal Stress Analysis\n\n\n\nErgonomics & Thermal Stress Analysis\nVarsity Ergonomics First Principles ECSA GA2 Methodology\nDemonstrated the application of scientific and engineering knowledge from first principles to solve a complex workplace thermal stress problem using custom instrumentation and ergonomic modeling.\nRead more →\n\n\n\n\n\n\nLEAN Layout Optimization\n\n\n\nInternship 2024: Dizani x Alpine - LEAN Implementation & Layout Design\nInternship LEAN Time Studies Facility Layout Process Improvement\nImplemented LEAN methodologies and redesigned the Fibre Department’s material stock buffer, significantly increasing local storage capacity and advancing the factory toward its 136-suite target.\nRead more →"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Get in Touch",
+    "section": "",
+    "text": "Get in Touch\nBased in the Western Cape, South Africa · Connect directly on LinkedIn or GitHub, or send a message below.\n\n  \n    \n    \n      Name\n      \n    \n    \n    \n      Email\n      \n    \n    \n    \n      Message\n      \n    \n    \n    Send Message"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "certifications.html",
+    "href": "certifications.html",
+    "title": "Certifications",
+    "section": "",
+    "text": "Professional and technical credentials across project management, supply chain, and data analytics.\n\n\n\n\n\nArea\nCertification\nIssuing Organization\nYear\nCredential\n\n\n\n\nProject Management\nFoundation Certificate in PM (ICB4)\nIPMA South Africa\n2025\nView\n\n\nSQL\nIntro to SQL\nKaggle\n2026\nView\n\n\nSQL\nAdvanced SQL\nKaggle\n2026\nView\n\n\nSupply Chain\nEnd-to-End Supply Chain Excellence\nInchainge\n2024\nView"
+  },
+  {
+    "objectID": "certifications.html#professional-technical-credentials",
+    "href": "certifications.html#professional-technical-credentials",
+    "title": "Certifications",
+    "section": "",
+    "text": "Area\nCertification\nIssuing Organization\nYear\nCredential\n\n\n\n\nProject Management\nFoundation Certificate in PM (ICB4)\nIPMA South Africa\n2025\nView\n\n\nSQL\nIntro to SQL\nKaggle\n2026\nView\n\n\nSQL\nAdvanced SQL\nKaggle\n2026\nView\n\n\nSupply Chain\nEnd-to-End Supply Chain Excellence\nInchainge\n2024\nView"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Emmanuel Fako",
@@ -84,39 +119,32 @@
     "text": "Certifications\nView All Certifications"
   },
   {
-    "objectID": "certifications.html",
-    "href": "certifications.html",
-    "title": "Certifications",
+    "objectID": "projects/blesmart.html",
+    "href": "projects/blesmart.html",
+    "title": "BLESmart",
     "section": "",
-    "text": "Professional and technical credentials across project management, supply chain, and data analytics.\n\n\n\n\n\nArea\nCertification\nIssuing Organization\nYear\nCredential\n\n\n\n\nProject Management\nFoundation Certificate in PM (ICB4)\nIPMA South Africa\n2025\nView\n\n\nSQL\nIntro to SQL\nKaggle\n2026\nView\n\n\nSQL\nAdvanced SQL\nKaggle\n2026\nView\n\n\nSupply Chain\nEnd-to-End Supply Chain Excellence\nInchainge\n2024\nView"
+    "text": "← Back to Portfolio\n\n\nIndoor localisation and classroom occupancy estimation\nBEng Industrial Engineering · Stellenbosch University · Final-year project, 2026\nI wanted to see what a university could learn about how its rooms are used from the Bluetooth signals already present. I built two experiments around an ESP32 scanner. In one, I carried it between fixed beacons to predict my location. In the other, I left it in a classroom and compared nearby device activity with the number of people I counted by hand.\n\nLive walk test. The camera view shows the route from Room 2 through the doorway into Room 3. The floor plan shows the predicted location.\n\n\nFive beacons gave each location a characteristic pattern of signal strengths. I recorded labelled examples, then used weighted nearest neighbours to match new readings to familiar patterns. I tested the same approach at two scales: 21 open-plan zones of 3 × 3 metres, and five rooms connected by four doorway transition zones.\n\n\n\n\n\n\n\n\n\nTest environment\nOffline exact\nLive exact\nLive including adjacent zones\n\n\n\n\nOpen-plan zones\n80.41%\n24.9%\n67.7%\n\n\nRooms and doorways\n92.83%\n50.6%\n86.7%\n\n\n\n\n\n\nPredicted and actual room labels over the live walk test.\n\n\nWalls helped distinguish rooms. Within the open-plan space, turning my body could change the signal enough to shift the prediction into the next zone. The walk test exposed a weakness in my evaluation: my offline split drew training and test samples from the same recordings. I would hold out entire runs in a repeat experiment.\n\n\n\nFor the occupancy experiment, I used Node-RED to filter nearby Bluetooth broadcasts, stored aggregate counts in InfluxDB, and compared them with manual headcounts. When 39 students left together, the device count stayed high. I traced the problem to the ESP32: more than 60 device timeouts arrived in a burst, and its 30-slot message queue lost departure events.\nI increased the queue to 150 slots and added a 75-second expiry in Node-RED. The stale counts cleared. Across 25 live observations, the estimates followed changes in attendance but were still off by 11 people on average. How many devices each person carried mattered even after the firmware fix.\n\n\n\nLive classroom occupancy estimates compared with manual headcounts.\n\n\n\n\n\nExecutive summary (PDF) · Download the presentation (PowerPoint)"
   },
   {
-    "objectID": "certifications.html#professional-technical-credentials",
-    "href": "certifications.html#professional-technical-credentials",
-    "title": "Certifications",
+    "objectID": "projects/blesmart.html#finding-the-right-room",
+    "href": "projects/blesmart.html#finding-the-right-room",
+    "title": "BLESmart",
     "section": "",
-    "text": "Area\nCertification\nIssuing Organization\nYear\nCredential\n\n\n\n\nProject Management\nFoundation Certificate in PM (ICB4)\nIPMA South Africa\n2025\nView\n\n\nSQL\nIntro to SQL\nKaggle\n2026\nView\n\n\nSQL\nAdvanced SQL\nKaggle\n2026\nView\n\n\nSupply Chain\nEnd-to-End Supply Chain Excellence\nInchainge\n2024\nView"
+    "text": "Five beacons gave each location a characteristic pattern of signal strengths. I recorded labelled examples, then used weighted nearest neighbours to match new readings to familiar patterns. I tested the same approach at two scales: 21 open-plan zones of 3 × 3 metres, and five rooms connected by four doorway transition zones.\n\n\n\n\n\n\n\n\n\nTest environment\nOffline exact\nLive exact\nLive including adjacent zones\n\n\n\n\nOpen-plan zones\n80.41%\n24.9%\n67.7%\n\n\nRooms and doorways\n92.83%\n50.6%\n86.7%\n\n\n\n\n\n\nPredicted and actual room labels over the live walk test.\n\n\nWalls helped distinguish rooms. Within the open-plan space, turning my body could change the signal enough to shift the prediction into the next zone. The walk test exposed a weakness in my evaluation: my offline split drew training and test samples from the same recordings. I would hold out entire runs in a repeat experiment."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "projects/blesmart.html#what-happened-when-a-lecture-ended",
+    "href": "projects/blesmart.html#what-happened-when-a-lecture-ended",
+    "title": "BLESmart",
     "section": "",
-    "text": "About this site"
+    "text": "For the occupancy experiment, I used Node-RED to filter nearby Bluetooth broadcasts, stored aggregate counts in InfluxDB, and compared them with manual headcounts. When 39 students left together, the device count stayed high. I traced the problem to the ESP32: more than 60 device timeouts arrived in a burst, and its 30-slot message queue lost departure events.\nI increased the queue to 150 slots and added a 75-second expiry in Node-RED. The stale counts cleared. Across 25 live observations, the estimates followed changes in attendance but were still off by 11 people on average. How many devices each person carried mattered even after the firmware fix.\n\n\n\nLive classroom occupancy estimates compared with manual headcounts."
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Get in Touch",
+    "objectID": "projects/blesmart.html#project-materials",
+    "href": "projects/blesmart.html#project-materials",
+    "title": "BLESmart",
     "section": "",
-    "text": "Get in Touch\nBased in the Western Cape, South Africa · Connect directly on LinkedIn or GitHub, or send a message below.\n\n  \n    \n    \n      Name\n      \n    \n    \n    \n      Email\n      \n    \n    \n    \n      Message\n      \n    \n    \n    Send Message"
-  },
-  {
-    "objectID": "portfolio.html",
-    "href": "portfolio.html",
-    "title": "Portfolio",
-    "section": "",
-    "text": "Portfolio\nA selection of academic and professional work.\n\n\n\n\n\nEnterprise Maintenance ERP System\n\n\n\nEnterprise Resource Planning: Industrial Maintenance & Asset Management System\nEnterprise Systems MS SQL Server C# .NET Database Architecture Systems Engineering\nArchitected an end-to-end ERP maintenance subsystem for manufacturing operations, integrating MS SQL Server relational modeling with a C# .NET desktop application across 9 core maintenance events and executive KPIs.\nRead more →\n\n\n\n\n\n\nOEE Optimization\n\n\n\nInternship 2025: Dizani x Coricraft x Beekman - OEE Optimization & Digital Tracking\nInternship OEE LEAN Process Improvement\nLed process optimization initiatives at Coricraft and Beekman Canopies, digitizing performance tracking and driving laminating team OEE from 72% to over 90%.\nRead more →\n\n\n\n\n\n\nRootGuard Soil Monitor\n\n\n\nRootGuard: IoT Soil Moisture Monitor\nPersonal Project ESP32-C5 Autodesk Inventor Soldering & Electronics C++\nA battery-powered soil monitor built to keep my Monstera alive. Designed a 3D-printed case in Autodesk Inventor, learned to solder while tracking down hardware bugs, and wrote low-power ESP32 firmware with an on-demand web dashboard.\nRead more →\n\n\n\n\n\n\nPortfolio Tracker Dashboard\n\n\n\nEasyEquities Portfolio Tracker\nPython C# .NET OCR Excel Automation Finance Machine Learning\nBuilt a C# desktop application and Python script to extract portfolio data from screenshots using OCR (Optical Character Recognition) and automatically update a custom Excel tracking dashboard.\nRead more →\n\n\n\n\n\n\nWind Turbine Clustering\n\n\n\nData Analytics: Wind Turbine Operational Analysis & Clustering\nVarsity Data Analytics R Clustering\nSegmented 60-feature turbine sensor data into 3 operational clusters using SOM and K-Means, enabling predictive maintenance decisions.\nRead more →\n\n\n\n\n\n\nTakealot Smart Distribution Warehouse\n\n\n\nProject Management: Automated Smart Distribution Warehouse\nVarsity Project Management MS Project Resource Optimization Risk\nLed the scheduling, baseline architecture, and resource strategy for a 12-period Project Management simulation, securing a 1st-place cohort finish.\nRead more →\n\n\n\n\n\n\nThe Fresh Connection Supply Chain\n\n\n\nSupply Chain Strategy: The Fresh Connection\nVarsity Supply Chain Purchasing Data Analysis Optimization\nFulfilled the role of Purchasing Manager for a massive simulated fruit juice company, executing an efficiency-driven strategy across 6 rounds to achieve an 80% final grade and a 5th-place finish.\nRead more →\n\n\n\n\n\n\nThermal Stress Analysis\n\n\n\nErgonomics & Thermal Stress Analysis\nVarsity Ergonomics First Principles ECSA GA2 Methodology\nDemonstrated the application of scientific and engineering knowledge from first principles to solve a complex workplace thermal stress problem using custom instrumentation and ergonomic modeling.\nRead more →\n\n\n\n\n\n\nLEAN Layout Optimization\n\n\n\nInternship 2024: Dizani x Alpine - LEAN Implementation & Layout Design\nInternship LEAN Time Studies Facility Layout Process Improvement\nImplemented LEAN methodologies and redesigned the Fibre Department’s material stock buffer, significantly increasing local storage capacity and advancing the factory toward its 136-suite target.\nRead more →\n\n\n\n\n  \n  \n    Coming Soon\n  \n\n\nFinal Year Project: BLESmart - Indoor BLE Localisation & Occupancy Detection\nFinal Year Project IoT & ESP32 Machine Learning Node-RED & MQTT InfluxDB & Grafana Python\nEngineered a low-cost edge-computing pipeline using an ESP32-C6 and BLE beacons to perform zone- and room-level spatial classification (WKNN & Random Forest) and privacy-preserving classroom occupancy estimation (Multiple Linear Regression) via MQTT, Node-RED, InfluxDB, and Grafana.\nCase study coming soon"
+    "text": "Executive summary (PDF) · Download the presentation (PowerPoint)"
   },
   {
     "objectID": "projects/dizani-2025.html",
