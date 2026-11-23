@@ -1,6 +1,7 @@
 project:
   type: website
   resources:
+    - "images/blesmart/**"
     - "images/ee_dashboard.pdf"
     - "images/ergos_report.pdf"
     - "images/supplier_decison.pdf"

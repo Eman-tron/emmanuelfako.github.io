@@ -11,6 +11,19 @@ A selection of academic and professional work.
 ::: {.project-grid}
 
 ::: {.project-card}
+[![BLESmart walkthrough showing the floor plan and doorway](images/blesmart/walkthrough.jpg)](projects/blesmart.qmd)
+
+::: {.project-card-body}
+### [BLESmart | Indoor Localisation & Occupancy Estimation](projects/blesmart.qmd)
+[Final Year Project]{.tag} [ESP32 & BLE]{.tag} [Python]{.tag} [Node-RED]{.tag}
+
+I built a Bluetooth prototype to answer two questions: which room am I in, and how many people are in a classroom? I tested it across five rooms and compared its occupancy estimates with manual headcounts.
+
+[View case study →](projects/blesmart.qmd)
+:::
+:::
+
+::: {.project-card}
 [![Enterprise Maintenance ERP System](images/erp_eerd.png)](projects/maintenance-erp.qmd)
 
 ::: {.project-card-body}
@@ -127,25 +140,7 @@ Implemented LEAN methodologies and redesigned the Fibre Department's material st
 :::
 :::
 
-::: {.project-card .coming-soon-card}
-```{=html}
-<div class="coming-soon-banner">
-  <div class="coming-soon-bg bg-ble"></div>
-  <div class="coming-soon-overlay">
-    <span class="coming-soon-badge">Coming Soon</span>
-  </div>
-</div>
-```
 
-::: {.project-card-body}
-### Final Year Project: BLESmart - Indoor BLE Localisation & Occupancy Detection
-[Final Year Project]{.tag} [IoT & ESP32]{.tag} [Machine Learning]{.tag} [Node-RED & MQTT]{.tag} [InfluxDB & Grafana]{.tag} [Python]{.tag}
-
-Engineered a low-cost edge-computing pipeline using an ESP32-C6 and BLE beacons to perform zone- and room-level spatial classification (WKNN & Random Forest) and privacy-preserving classroom occupancy estimation (Multiple Linear Regression) via MQTT, Node-RED, InfluxDB, and Grafana.
-
-[Case study coming soon]{.coming-soon-status}
-:::
-:::
 
 :::
 :::
