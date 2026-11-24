@@ -53,7 +53,7 @@ Architected an end-to-end ERP maintenance subsystem for manufacturing operations
 :::
 
 ::: {.project-card data-categories="operations"}
-[![Coricraft CNC Nesting and OEE Optimization](images/cnc.png)](projects/dizani-2025.qmd)
+[![OEE Optimization](images/dizani.png)](projects/dizani-2025.qmd)
 
 ::: {.project-card-body}
 ### [Internship 2025: Dizani x Coricraft x Beekman - OEE Optimization & Digital Tracking](projects/dizani-2025.qmd)
@@ -165,7 +165,7 @@ Demonstrated the application of scientific and engineering knowledge from first 
 :::
 
 ::: {.project-card data-categories="operations"}
-[![LEAN Buffer Layout Optimization](images/buffer_optimization.png)](projects/dizani-2024.qmd)
+[![LEAN Layout Optimization](images/dizani.png)](projects/dizani-2024.qmd)
 
 ::: {.project-card-body}
 ### [Internship 2024: Dizani x Alpine - LEAN Implementation & Layout Design](projects/dizani-2024.qmd)

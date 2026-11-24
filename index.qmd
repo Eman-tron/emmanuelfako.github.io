@@ -8,19 +8,15 @@ page-layout: full
 ::: {.hero}
 ![](images/me.JPG){.profile-pic}
 
-::: {.hero-eyebrow}
-BEng Industrial Engineering · Final Year (2026)
-:::
-
 # Emmanuel Fako
-Industrial & Systems Engineering
+Industrial Engineer
 
 ::: {.subtitle}
-Data-driven operations, enterprise systems, and connected hardware. Turning messy physical processes and raw telemetry into clear, reliable engineering systems.
+Data-driven operations and process improvement, turning complexity into clarity.
 :::
 
 ::: {.hero-actions}
-[View All Projects](portfolio.qmd){.btn-primary}
+[View My Work](portfolio.qmd){.btn-primary}
 [LinkedIn](https://linkedin.com/in/emmanuel-fako-773180364){.btn-secondary}
 :::
 :::
@@ -71,7 +67,7 @@ Architected an end-to-end ERP maintenance subsystem for manufacturing operations
 :::
 
 ::: {.project-card}
-[![Coricraft CNC Nesting and Optimization](images/cnc.png)](projects/dizani-2025.qmd)
+[![OEE Optimization](images/dizani.png)](projects/dizani-2025.qmd)
 
 ::: {.project-card-body}
 ### [Internship 2025: Dizani x Coricraft x Beekman - OEE Optimization & Digital Tracking](projects/dizani-2025.qmd)
