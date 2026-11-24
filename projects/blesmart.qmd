@@ -35,8 +35,10 @@ A privacy-preserving Bluetooth Low Energy (BLE) telemetry system built to track 
 
 > **Practical Impact:** Demonstrated that low-cost ESP32 edge nodes paired with targeted signal filtering and lightweight machine learning can deliver privacy-safe building analytics without cameras or high-cost tracking hardware.
 
-[View Executive Summary (PDF)](../images/blesmart/BLESmart-executive-summary.pdf){.btn-primary}
+::: {.case-actions}
+[View Executive Summary (PDF) ↗](../images/blesmart/BLESmart-executive-summary.pdf){.btn-primary target="_blank"}
 [Download Presentation Slides (.pptx)](../images/blesmart/BLESmart-presentation.pptx){.btn-secondary}
+:::
 
 ---
 
@@ -50,12 +52,23 @@ A privacy-preserving Bluetooth Low Energy (BLE) telemetry system built to track 
 ```
 
 **End-to-End Edge-to-Cloud Architecture**
-![BLESmart Three-Tier System Architecture](../images/blesmart/architecture.png){style="max-width:860px;"}
+![BLESmart Three-Tier System Architecture](../images/blesmart/architecture.png)
 
 **Inter-Room Live Trajectory Validation**
-![Predicted vs. Ground-Truth Room Trajectory](../images/blesmart/room-walk.png){style="max-width:860px;"}
+![Predicted vs. Ground-Truth Room Trajectory](../images/blesmart/room-walk.png)
 
 **Anonymous Classroom Occupancy Tracking**
-![Live Lecture Occupancy Estimates vs. Manual Headcounts](../images/blesmart/occupancy.png){style="max-width:860px;"}
+![Live Lecture Occupancy Estimates vs. Manual Headcounts](../images/blesmart/occupancy.png)
+
+::: {.case-nav}
+::: {.case-nav-prev .is-disabled}
+:::
+::: {.case-nav-index}
+[All Projects](../portfolio.qmd)
+:::
+::: {.case-nav-next}
+[Next: Maintenance ERP →](maintenance-erp.qmd)
+:::
+:::
 
 :::

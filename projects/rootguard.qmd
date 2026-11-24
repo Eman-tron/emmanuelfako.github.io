@@ -38,6 +38,7 @@ Tracing the FireBeetle schematic and pinout definitions revealed a few real-worl
 * **The Sneaky Status LED:** The sensor ground switch was shared with the board's built-in green LED. Turning off the sensor accidentally lit the LED, secretly pulling 2-3 mA around the clock.
 
 To fix it, I learned how to solder and rework the board myself:
+
 * Desoldered and moved the button to a proper low-power wakeup pin (`GPIO 6`).
 * Changed the sensor pin mode in code to high-impedance (`Hi-Z`) during sleep so both the probe and the green LED shut off completely, dropping sleep current down to microamps.
 
@@ -51,6 +52,21 @@ To fix it, I learned how to solder and rework the board myself:
 ---
 
 ### Photos & Build Log (Coming Soon)
-*Photos of the Autodesk Inventor model, the reworked board, and the sensor sitting in the Monstera pot will be added here soon.*
+
+::: {.case-note}
+Photos of the Autodesk Inventor model, the reworked board, and the sensor sitting in the Monstera pot will be added here soon.
+:::
+
+::: {.case-nav}
+::: {.case-nav-prev}
+[← Previous: Dizani 2025 Internship](dizani-2025.qmd)
+:::
+::: {.case-nav-index}
+[All Projects](../portfolio.qmd)
+:::
+::: {.case-nav-next}
+[Next: EasyEquities Tracker →](ee-tracker.qmd)
+:::
+:::
 
 :::

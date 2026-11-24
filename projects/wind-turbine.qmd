@@ -10,7 +10,7 @@ page-layout: full
 [← Back to Portfolio](../portfolio.qmd)
 
 # Wind Turbine Operational Analysis & Clustering {.section-title}
-**Context:** Data Analytics 344 · R-based Academic Project 
+**Context:** Data Analytics 344 · R-based Academic Project
 
 ---
 
@@ -32,7 +32,9 @@ page-layout: full
 
 > **Business Impact:** These clusters can be utilised by site managers to identify abnormal mechanical stress and perform predictive maintenance before component failure, and to analyse correlations between components during high and low stress situations.
 
-[View Full Report](https://drive.google.com/file/d/1Af_g5753pE1WVJoNjmIFcAPKGVsP3Apx/view?usp=drive_link){.btn-primary}
+::: {.case-actions}
+[View Full Report ↗](https://drive.google.com/file/d/1Af_g5753pE1WVJoNjmIFcAPKGVsP3Apx/view?usp=drive_link){.btn-primary}
+:::
 
 ---
 
@@ -50,6 +52,18 @@ page-layout: full
 ![Elbow Method for k=3](../images/elbow_plot.png)
 
 ![Silhouette Score](../images/silhouette_plot.png)
+:::
+
+::: {.case-nav}
+::: {.case-nav-prev}
+[← Previous: EasyEquities Tracker](ee-tracker.qmd)
+:::
+::: {.case-nav-index}
+[All Projects](../portfolio.qmd)
+:::
+::: {.case-nav-next}
+[Next: Takealot Warehouse →](takealot-warehouse.qmd)
+:::
 :::
 
 :::

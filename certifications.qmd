@@ -7,17 +7,79 @@ page-layout: full
 
 ::: {.section}
 
-
 # Certifications {.section-title}
-Professional and technical credentials across project management, supply chain, and data analytics.
+Verified credentials across project management, relational SQL databases, and supply chain strategy.
 
-## Professional & Technical Credentials
+::: {.cert-grid}
 
-| Area | Certification | Issuing Organization | Year | Credential |
-|---|---|---|---|---|
-| Project Management | **Foundation Certificate in PM** (ICB4) | IPMA South Africa | 2025 | [View](certs/ipma_cert.pdf) |
-| SQL | **Intro to SQL** | Kaggle | 2026 | [View](certs/kaggle_basic_sql.PNG) |
-| SQL | **Advanced SQL** | Kaggle | 2026 | [View](certs/kaggle_advanced_sql.PNG) |
-| Supply Chain | **End-to-End Supply Chain Excellence** | Inchainge | 2024 | [View](certs/inchainge_cert.pdf) |
+::: {.cert-card}
+[Project Management]{.tag}
+
+### Foundation Certificate in Project Management (ICB4)
+
+::: {.cert-meta}
+[IPMA South Africa]{.cert-issuer}
+[2025]{.cert-year}
+:::
+
+Covers baseline scheduling, Earned Value Analysis, risk management, and stakeholder coordination under the IPMA Individual Competence Baseline.
+
+::: {.cert-actions}
+[View Certificate (PDF) ↗](certs/ipma_cert.pdf){.btn-secondary target="_blank"}
+:::
+:::
+
+::: {.cert-card}
+[Databases & Analytics]{.tag}
+
+### Advanced SQL
+
+::: {.cert-meta}
+[Kaggle]{.cert-issuer}
+[2026]{.cert-year}
+:::
+
+Covers complex multi-table joins, analytic window functions, nested/repeated fields, and query efficiency optimization for large datasets.
+
+::: {.cert-actions}
+[View Certificate ↗](certs/kaggle_advanced_sql.PNG){.btn-secondary target="_blank"}
+:::
+:::
+
+::: {.cert-card}
+[Databases & Analytics]{.tag}
+
+### Intro to SQL
+
+::: {.cert-meta}
+[Kaggle]{.cert-issuer}
+[2026]{.cert-year}
+:::
+
+Foundational BigQuery and relational SQL syntax covering aggregations, filtering, grouping, and clean multi-table joining.
+
+::: {.cert-actions}
+[View Certificate ↗](certs/kaggle_basic_sql.PNG){.btn-secondary target="_blank"}
+:::
+:::
+
+::: {.cert-card}
+[Supply Chain Strategy]{.tag}
+
+### End-to-End Supply Chain Excellence
+
+::: {.cert-meta}
+[Inchainge]{.cert-issuer}
+[2024]{.cert-year}
+:::
+
+Awarded during The Fresh Connection simulation for cross-functional Sales & Operations Planning (S&OP), Total Cost of Ownership alignment, and ROI optimization.
+
+::: {.cert-actions}
+[View Certificate (PDF) ↗](certs/inchainge_cert.pdf){.btn-secondary target="_blank"}
+:::
+:::
+
+:::
 
 :::

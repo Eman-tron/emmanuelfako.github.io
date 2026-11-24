@@ -17,13 +17,13 @@ page-layout: full
 ### The Problem
 * Thermal stress in hot, humid work environments significantly impacts worker performance, safety, and health, leading to fatigue and reduced efficiency.
 * Because ambient conditions cannot always be fully eliminated (e.g., in mobile work contexts like Uber driving), mitigating heat stress requires a multidisciplinary engineering approach.
-* The objective was to apply scientific and engineering knowledge from first principles (ECSA GA2) to assess thermal risk and develop practical interventions. 
+* The objective was to apply scientific and engineering knowledge from first principles (ECSA GA2) to assess thermal risk and develop practical interventions.
 
 ### The Approach
 * Collected environmental data in a simulated hot/humid workspace (State A) and a cooler rest area (State B) using an RSPro IM-730 hygrometer.
 * Engineered a DIY black globe thermometer (placing the sensor inside a black cylindrical container) to accurately estimate radiant heat exposure.
 * Calculated the indoor Wet Bulb Globe Temperature (WBGT) to quantify the exact level of thermal strain.
-* Mapped the environmental data against ergonomic models (Niebel’s Work Design) for a worker producing 350 kcal/hr during seated, moderate arm work.
+* Mapped the environmental data against ergonomic models (Niebel's Work Design) for a worker producing 350 kcal/hr during seated, moderate arm work.
 
 ### The Outcome
 * Peak measurements in the simulated workspace revealed a WBGT of 31.06°C.
@@ -43,18 +43,31 @@ page-layout: full
 **WBGT Heat Stress Exposure Limit Chart and DIY Globe Thermometer Application**
 
 ::: {layout-ncol=2}
-![WGBT Chart](../images/metabolicheat.png)
+![WBGT Chart](../images/metabolicheat.png)
 
 ![DIY Instrumentation](../images/diy_globe.png)
 :::
 
 ---
 
-## Report
+### Report
 
-[Open Full Report PDF ↗](../images/ergos_report.pdf){.btn-secondary target="_blank" style="margin-left: 0; margin-bottom: 1rem;"}
+::: {.case-actions}
+[Open Full Report PDF ↗](../images/ergos_report.pdf){.btn-secondary target="_blank"}
+:::
 
-<iframe src="../images/ergos_report.pdf" width="100%" height="600px" style="border: 1px solid var(--border); border-radius: 8px;"></iframe>
+<iframe src="../images/ergos_report.pdf" title="Ergonomics Thermal Stress Report PDF"></iframe>
 
+::: {.case-nav}
+::: {.case-nav-prev}
+[← Previous: The Fresh Connection](fresh-connection.qmd)
+:::
+::: {.case-nav-index}
+[All Projects](../portfolio.qmd)
+:::
+::: {.case-nav-next}
+[Next: Dizani 2024 Internship →](dizani-2024.qmd)
+:::
+:::
 
 :::

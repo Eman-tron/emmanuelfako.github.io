@@ -21,7 +21,6 @@ A custom desktop application that extracts portfolio data from screenshots and a
 * EasyEquities only provided current snapshots, making it difficult to track historical volatility, max drawdowns, or weekly returns over time.
 * Managing multiple accounts (Tax-Free, ZAR, USD) and comparing live strategies to demo accounts required clicking through isolated tabs.
 
-
 ### The Approach
 * **Application Architecture:** Built a desktop interface that triggers a Python data processing script via command-line execution.
 * **Data Extraction:** Used Python's `easyocr` library to extract raw text from uploaded screenshots of the portfolio.
@@ -41,10 +40,25 @@ A custom desktop application that extracts portfolio data from screenshots and a
 
 **Automated Python-Generated Excel Dashboard**
 
-[Open Full Dashboard PDF ↗](../images/ee_dashboard.pdf){.btn-secondary target="_blank" style="margin-left: 0; margin-bottom: 1rem;"}
+::: {.case-actions}
+[Open Full Dashboard PDF ↗](../images/ee_dashboard.pdf){.btn-secondary target="_blank"}
+:::
 
-<iframe src="../images/ee_dashboard.pdf?v=3" width="100%" height="600px" style="border: 1px solid var(--border); border-radius: 8px;"></iframe>
+<iframe src="../images/ee_dashboard.pdf?v=3" title="Automated Excel Dashboard PDF"></iframe>
 
 **Custom C# .NET Application Interface**
 ![Application UI](../images/tracker_ui.png)
+
+::: {.case-nav}
+::: {.case-nav-prev}
+[← Previous: RootGuard](rootguard.qmd)
+:::
+::: {.case-nav-index}
+[All Projects](../portfolio.qmd)
+:::
+::: {.case-nav-next}
+[Next: Wind Turbine Clustering →](wind-turbine.qmd)
+:::
+:::
+
 :::

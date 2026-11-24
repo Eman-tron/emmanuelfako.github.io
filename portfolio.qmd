@@ -4,143 +4,209 @@ pagetitle: "Portfolio | Emmanuel Fako"
 toc: false
 page-layout: full
 ---
+
 ::: {.section}
 # Portfolio {.section-title}
-A selection of academic and professional work. 
+Selected academic, industrial internship, and personal engineering projects.
+
+```{=html}
+<div class="filter-bar" role="group" aria-label="Filter projects by category">
+  <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All (10)</button>
+  <button type="button" class="filter-btn" data-filter="systems" aria-pressed="false">Systems &amp; Software</button>
+  <button type="button" class="filter-btn" data-filter="iot" aria-pressed="false">IoT &amp; Hardware</button>
+  <button type="button" class="filter-btn" data-filter="operations" aria-pressed="false">Operations &amp; Internships</button>
+</div>
+```
 
 ::: {.project-grid}
 
-::: {.project-card}
-[![BLESmart Indoor Localisation & Occupancy Detection](images/blesmart/walkthrough.jpg)](projects/blesmart.qmd)
+::: {.project-card data-categories="iot systems"}
+[![BLESmart Indoor Localisation and Occupancy Detection](images/blesmart/walkthrough.jpg)](projects/blesmart.qmd)
 
 ::: {.project-card-body}
 ### [Final Year Project: BLESmart - Indoor Localisation & Occupancy Detection](projects/blesmart.qmd)
+
+::: {.project-tags}
 [Final Year Project]{.tag} [IoT & ESP32]{.tag} [Python]{.tag} [Machine Learning]{.tag} [Node-RED & MQTT]{.tag} [InfluxDB & Grafana]{.tag}
+:::
 
 Designed and validated a privacy-preserving Bluetooth Low Energy (BLE) pipeline using an ESP32-C6, MQTT, Node-RED, InfluxDB, and Grafana to track multi-room indoor movement and estimate live lecture hall attendance.
 
-[Read more →](projects/blesmart.qmd)
+[Read more →](projects/blesmart.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="systems"}
 [![Enterprise Maintenance ERP System](images/erp_eerd.png)](projects/maintenance-erp.qmd)
 
 ::: {.project-card-body}
 ### [Enterprise Resource Planning: Industrial Maintenance & Asset Management System](projects/maintenance-erp.qmd)
+
+::: {.project-tags}
 [Enterprise Systems]{.tag} [MS SQL Server]{.tag} [C# .NET]{.tag} [Database Architecture]{.tag} [Systems Engineering]{.tag}
+:::
 
 Architected an end-to-end ERP maintenance subsystem for manufacturing operations, integrating MS SQL Server relational modeling with a C# .NET desktop application across 9 core maintenance events and executive KPIs.
 
-[Read more →](projects/maintenance-erp.qmd)
+[Read more →](projects/maintenance-erp.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
-[![OEE Optimization](images/dizani.png)](projects/dizani-2025.qmd)
+::: {.project-card data-categories="operations"}
+[![Coricraft CNC Nesting and OEE Optimization](images/cnc.png)](projects/dizani-2025.qmd)
 
 ::: {.project-card-body}
 ### [Internship 2025: Dizani x Coricraft x Beekman - OEE Optimization & Digital Tracking](projects/dizani-2025.qmd)
+
+::: {.project-tags}
 [Internship]{.tag} [OEE]{.tag} [LEAN]{.tag} [Process Improvement]{.tag}
+:::
 
 Led process optimization initiatives at Coricraft and Beekman Canopies, digitizing performance tracking and driving laminating team OEE from 72% to over 90%.
 
-[Read more →](projects/dizani-2025.qmd)
+[Read more →](projects/dizani-2025.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="iot"}
 [![RootGuard Soil Monitor](images/rootguard_card.png)](projects/rootguard.qmd)
 
 ::: {.project-card-body}
 ### [RootGuard: IoT Soil Moisture Monitor](projects/rootguard.qmd)
+
+::: {.project-tags}
 [Personal Project]{.tag} [ESP32-C5]{.tag} [Autodesk Inventor]{.tag} [Soldering & Electronics]{.tag} [C++]{.tag}
+:::
 
 A battery-powered soil monitor built to keep my Monstera alive. Designed a 3D-printed case in Autodesk Inventor, learned to solder while tracking down hardware bugs, and wrote low-power ESP32 firmware with an on-demand web dashboard.
 
-[Read more →](projects/rootguard.qmd)
+[Read more →](projects/rootguard.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="systems"}
 [![Portfolio Tracker Dashboard](images/ee_dash.png)](projects/ee-tracker.qmd)
 
 ::: {.project-card-body}
 ### [EasyEquities Portfolio Tracker](projects/ee-tracker.qmd)
-[Python]{.tag} [C# .NET]{.tag} [OCR]{.tag} [Excel Automation]{.tag} [Finance]{.tag} [Machine Learning]{.tag}
+
+::: {.project-tags}
+[Python]{.tag} [C# .NET]{.tag} [OCR]{.tag} [Excel Automation]{.tag} [Finance]{.tag}
+:::
 
 Built a C# desktop application and Python script to extract portfolio data from screenshots using OCR (Optical Character Recognition) and automatically update a custom Excel tracking dashboard.
 
-[Read more →](projects/ee-tracker.qmd)
+[Read more →](projects/ee-tracker.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="systems"}
 [![Wind Turbine Clustering](images/SOM_grid2.png)](projects/wind-turbine.qmd)
 
 ::: {.project-card-body}
 ### [Data Analytics: Wind Turbine Operational Analysis & Clustering](projects/wind-turbine.qmd)
+
+::: {.project-tags}
 [Varsity]{.tag} [Data Analytics]{.tag} [R]{.tag} [Clustering]{.tag}
+:::
 
 Segmented 60-feature turbine sensor data into 3 operational clusters using SOM and K-Means, enabling predictive maintenance decisions.
 
-[Read more →](projects/wind-turbine.qmd)
+[Read more →](projects/wind-turbine.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="operations"}
 [![Takealot Smart Distribution Warehouse](images/team_photo.png)](projects/takealot-warehouse.qmd)
 
 ::: {.project-card-body}
 ### [Project Management: Automated Smart Distribution Warehouse](projects/takealot-warehouse.qmd)
+
+::: {.project-tags}
 [Varsity]{.tag} [Project Management]{.tag} [MS Project]{.tag} [Resource Optimization]{.tag} [Risk]{.tag}
+:::
 
 Led the scheduling, baseline architecture, and resource strategy for a 12-period Project Management simulation, securing a 1st-place cohort finish.
 
-[Read more →](projects/takealot-warehouse.qmd)
+[Read more →](projects/takealot-warehouse.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="operations"}
 [![The Fresh Connection Supply Chain](images/tfc.png)](projects/fresh-connection.qmd)
 
 ::: {.project-card-body}
 ### [Supply Chain Strategy: The Fresh Connection](projects/fresh-connection.qmd)
+
+::: {.project-tags}
 [Varsity]{.tag} [Supply Chain]{.tag} [Purchasing]{.tag} [Data Analysis]{.tag} [Optimization]{.tag}
+:::
 
 Fulfilled the role of Purchasing Manager for a massive simulated fruit juice company, executing an efficiency-driven strategy across 6 rounds to achieve an 80% final grade and a 5th-place finish.
 
-[Read more →](projects/fresh-connection.qmd)
+[Read more →](projects/fresh-connection.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
+::: {.project-card data-categories="operations"}
 [![Thermal Stress Analysis](images/ergospp.png)](projects/thermal-stress.qmd)
 
 ::: {.project-card-body}
 ### [Ergonomics & Thermal Stress Analysis](projects/thermal-stress.qmd)
+
+::: {.project-tags}
 [Varsity]{.tag} [Ergonomics]{.tag} [First Principles]{.tag} [ECSA GA2]{.tag} [Methodology]{.tag}
+:::
 
 Demonstrated the application of scientific and engineering knowledge from first principles to solve a complex workplace thermal stress problem using custom instrumentation and ergonomic modeling.
 
-[Read more →](projects/thermal-stress.qmd)
+[Read more →](projects/thermal-stress.qmd){.project-link}
 :::
 :::
 
-::: {.project-card}
-[![LEAN Layout Optimization](images/dizani.png)](projects/dizani-2024.qmd)
+::: {.project-card data-categories="operations"}
+[![LEAN Buffer Layout Optimization](images/buffer_optimization.png)](projects/dizani-2024.qmd)
 
 ::: {.project-card-body}
 ### [Internship 2024: Dizani x Alpine - LEAN Implementation & Layout Design](projects/dizani-2024.qmd)
+
+::: {.project-tags}
 [Internship]{.tag} [LEAN]{.tag} [Time Studies]{.tag} [Facility Layout]{.tag} [Process Improvement]{.tag}
+:::
 
 Implemented LEAN methodologies and redesigned the Fibre Department's material stock buffer, significantly increasing local storage capacity and advancing the factory toward its 136-suite target.
 
-[Read more →](projects/dizani-2024.qmd)
+[Read more →](projects/dizani-2024.qmd){.project-link}
 :::
 :::
 
-
-
 :::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll(".filter-btn");
+  var cards = document.querySelectorAll(".project-grid .project-card");
+  if (!buttons.length || !cards.length) return;
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var filter = btn.getAttribute("data-filter") || "all";
+
+      buttons.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
+      cards.forEach(function (card) {
+        var cats = (card.getAttribute("data-categories") || "").split(/\s+/);
+        var show = filter === "all" || cats.indexOf(filter) !== -1;
+        card.classList.toggle("is-hidden", !show);
+      });
+    });
+  });
+});
+</script>
+```
 :::

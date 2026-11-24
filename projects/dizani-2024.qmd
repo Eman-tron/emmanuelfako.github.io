@@ -17,7 +17,7 @@ A foundational industrial engineering internship focused on time studies, waste 
 ---
 
 ### The Problem
-* The Bravo Lounge division manufactured 45,000 pieces of furniture a month but suffered from underutilized storage areas and inefficient material flow. 
+* The Bravo Lounge division manufactured 45,000 pieces of furniture a month but suffered from underutilized storage areas and inefficient material flow.
 * The factory had a long-term operational goal to create a First-In-First-Out (FIFO) buffer capable of holding two days' worth of work (136 suites) spread across the bridge, the fibre department, and the foam cutting department.
 
 ### The Approach
@@ -32,11 +32,15 @@ A foundational industrial engineering internship focused on time studies, waste 
 
 > **Employer Testimonial:** *"Overall, Emmanuel was productive and enriching... His knowledge and skills acquired during this period will contribute positively to his academic and future career pursuits. Looking forward to round two!"* - T. Els, Dizani Consulting
 
+::: {.case-actions}
+[View Vacation Training Certificate (PDF) ↗](../images/vc24.pdf){.btn-primary target="_blank"}
+:::
+
+::: {.case-note}
+**Note on Confidentiality:** Out of respect for client intellectual property and proprietary operations, specific process flowcharts, raw time study data, and internal software interfaces have been omitted or redacted from this public portfolio.
+:::
+
 ---
-
-[Vacation Training Certificate →](../images/vc24.pdf)
-
-*Note on Confidentiality: Out of respect for client intellectual property and proprietary operations, specific process flowcharts, raw time study data, and internal software interfaces have been omitted or redacted from this public portfolio.*
 
 ### Project Visuals
 
@@ -45,5 +49,16 @@ A foundational industrial engineering internship focused on time studies, waste 
 
 **Time & Motion Study Data Collection**
 ![Time Study Sheet](../images/time_study.png)
+
+::: {.case-nav}
+::: {.case-nav-prev}
+[← Previous: Thermal Stress Analysis](thermal-stress.qmd)
+:::
+::: {.case-nav-index}
+[All Projects](../portfolio.qmd)
+:::
+::: {.case-nav-next .is-disabled}
+:::
+:::
 
 :::
