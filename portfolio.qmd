@@ -11,15 +11,15 @@ A selection of academic and professional work.
 ::: {.project-grid}
 
 ::: {.project-card}
-[![BLESmart walkthrough showing the floor plan and doorway](images/blesmart/walkthrough.jpg)](projects/blesmart.qmd)
+[![BLESmart Indoor Localisation & Occupancy Detection](images/blesmart/walkthrough.jpg)](projects/blesmart.qmd)
 
 ::: {.project-card-body}
-### [BLESmart | Indoor Localisation & Occupancy Estimation](projects/blesmart.qmd)
-[Final Year Project]{.tag} [ESP32 & BLE]{.tag} [Python]{.tag} [Node-RED]{.tag}
+### [Final Year Project: BLESmart - Indoor Localisation & Occupancy Detection](projects/blesmart.qmd)
+[Final Year Project]{.tag} [IoT & ESP32]{.tag} [Python]{.tag} [Machine Learning]{.tag} [Node-RED & MQTT]{.tag} [InfluxDB & Grafana]{.tag}
 
-I built a Bluetooth prototype to answer two questions: which room am I in, and how many people are in a classroom? I tested it across five rooms and compared its occupancy estimates with manual headcounts.
+Designed and validated a privacy-preserving Bluetooth Low Energy (BLE) pipeline using an ESP32-C6, MQTT, Node-RED, InfluxDB, and Grafana to track multi-room indoor movement and estimate live lecture hall attendance.
 
-[View case study →](projects/blesmart.qmd)
+[Read more →](projects/blesmart.qmd)
 :::
 :::
 
