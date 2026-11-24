@@ -342,108 +342,108 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Machine Breakdown Logging (MT2):</strong> Floor operators log equipment failures with immediate status transition of <code>MachineStatus</code> to “Down”, recording exact failure timestamps, symptom descriptions, and triggering technician dispatch.</li>
 <li><strong>Repair Execution &amp; Spare Parts Reconciliation (MT3):</strong> Technicians record labor hours, classify root causes against standard failure codes, and issue replacement components via the <code>Repairs_SpareParts</code> junction table. The transaction automatically decrements live stock and resets machine status to “Operational”.</li>
 <li><strong>Preventative Maintenance Scheduling (MT4):</strong> Planners configure recurring service intervals based on operational calendars or runtime thresholds, managing technician availability and minimizing planned shutdown conflicts.</li>
-<li><strong>Repair Cost Accounting Rollup (MT9):</strong> Multi-table financial calculation summing technician labor expense (hours × hourly rate) and consumed parts expense (quantity × unit cost) grouped by standardized failure category for accounting and reliability engineering.</li>
+<li><strong>Repair Cost Accounting Rollup (MT9):</strong> Multi-table financial calculation summing technician labor expense (hours x hourly rate) and consumed parts expense (quantity x unit cost) grouped by standardized failure category for accounting and reliability engineering.</li>
 </ul>
-<details style="margin-top: 1.5rem; margin-bottom: 2rem; padding: 1rem 1.25rem; background: var(--card-bg, #f8f9fa); border: 1px solid var(--border, #e9ecef); border-radius: 8px; cursor: pointer;">
-  <summary style="font-weight: 600; color: var(--text-main, #212529);">
+<details class="case-details">
+  <summary>
     View Complete 12-Event Lifecycle Catalog (MT1-MT9 &amp; EM2, EM14, EM15)
   </summary>
-  <div style="margin-top: 1rem; overflow-x: auto;">
+  <div class="case-table-wrap">
     
-<table class="caption-top table">
+<table class="case-table caption-top table">
 <thead>
-<tr class="header" style="border-bottom: 2px solid var(--border, #dee2e6); text-align: left;">
-<th data-quarto-table-cell-role="th" style="padding: 0.5rem">Code</th>
-<th data-quarto-table-cell-role="th" style="padding: 0.5rem">Event Name</th>
-<th data-quarto-table-cell-role="th" style="padding: 0.5rem">Operational Trigger</th>
-<th data-quarto-table-cell-role="th" style="padding: 0.5rem">Key Tables</th>
-<th data-quarto-table-cell-role="th" style="padding: 0.5rem">Business Logic</th>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Code</th>
+<th data-quarto-table-cell-role="th">Event Name</th>
+<th data-quarto-table-cell-role="th">Operational Trigger</th>
+<th data-quarto-table-cell-role="th">Key Tables</th>
+<th data-quarto-table-cell-role="th">Business Logic</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT1</strong></td>
-<td style="padding: 0.5rem">Register Failure Type</td>
-<td style="padding: 0.5rem">Engineering defines failure code</td>
-<td style="padding: 0.5rem"><code>FailureTypes</code></td>
-<td style="padding: 0.5rem">Enforces unique error codes and records expected repair benchmarks.</td>
-</tr>
-<tr class="even" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT2</strong></td>
-<td style="padding: 0.5rem">Record Machine Failure</td>
-<td style="padding: 0.5rem">Floor operator logs breakdown</td>
-<td style="padding: 0.5rem"><code>Failures</code>, <code>Machines</code></td>
-<td style="padding: 0.5rem">Sets machine status to "Down" and alerts maintenance dispatch.</td>
-</tr>
-<tr class="odd" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT3</strong></td>
-<td style="padding: 0.5rem">Perform Machine Repair</td>
-<td style="padding: 0.5rem">Technician completes work order</td>
-<td style="padding: 0.5rem"><code>Repairs</code>, <code>Repairs_SpareParts</code></td>
-<td style="padding: 0.5rem">Allocates spares, decrements inventory, and resets status to "Operational".</td>
-</tr>
-<tr class="even" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT4</strong></td>
-<td style="padding: 0.5rem">Schedule Maintenance</td>
-<td style="padding: 0.5rem">Planner sets calendar service</td>
-<td style="padding: 0.5rem"><code>ScheduledMaintenance</code></td>
-<td style="padding: 0.5rem">Validates shift availability and assigns qualified technicians.</td>
-</tr>
-<tr class="odd" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT5</strong></td>
-<td style="padding: 0.5rem">Add New Spares Item</td>
-<td style="padding: 0.5rem">Procurement enters new part</td>
-<td style="padding: 0.5rem"><code>SpareParts</code></td>
-<td style="padding: 0.5rem">Initializes reorder thresholds and opening unit purchase cost.</td>
-</tr>
-<tr class="even" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT6</strong></td>
-<td style="padding: 0.5rem">Reconcile Spare Stock</td>
-<td style="padding: 0.5rem">Stocktake count adjustment</td>
-<td style="padding: 0.5rem"><code>SpareParts</code></td>
-<td style="padding: 0.5rem">Adjusts physical stock on hand and flags threshold breaches.</td>
-</tr>
-<tr class="odd" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT7</strong></td>
-<td style="padding: 0.5rem">Update Spare Unit Price</td>
-<td style="padding: 0.5rem">Supplier updates component pricing</td>
-<td style="padding: 0.5rem"><code>SpareParts</code>, <code>Audit</code></td>
-<td style="padding: 0.5rem">Logs effective price dates while preserving historical work-order costs.</td>
-</tr>
-<tr class="even" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT8</strong></td>
-<td style="padding: 0.5rem">Standard Failure Frequency</td>
-<td style="padding: 0.5rem">Reliability engineer queries trends</td>
-<td style="padding: 0.5rem"><code>Failures</code>, <code>FailureTypes</code></td>
-<td style="padding: 0.5rem">Aggregates breakdown occurrences across selectable date windows.</td>
-</tr>
-<tr class="odd" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>MT9</strong></td>
-<td style="padding: 0.5rem">Repair Cost Calculation</td>
-<td style="padding: 0.5rem">Accountant requests cost rollup</td>
-<td style="padding: 0.5rem"><code>Repairs</code>, <code>SpareParts</code></td>
-<td style="padding: 0.5rem">Rolls up labor and parts cost by failure code.</td>
-</tr>
-<tr class="even" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>EM2</strong></td>
-<td style="padding: 0.5rem">Periodic Maintenance Cost</td>
-<td style="padding: 0.5rem">Executive quarterly cost review</td>
-<td style="padding: 0.5rem"><code>Repairs</code>, <code>ScheduledMaint</code></td>
-<td style="padding: 0.5rem">Compares preventative investments vs reactive repair spend against budgets.</td>
-</tr>
-<tr class="odd" style="border-bottom: 1px solid var(--border, #eee);">
-<td style="padding: 0.5rem"><strong>EM14</strong></td>
-<td style="padding: 0.5rem">Operator Failure Correlation</td>
-<td style="padding: 0.5rem">Operations reviews training needs</td>
-<td style="padding: 0.5rem"><code>Failures</code>, <code>Employees</code></td>
-<td style="padding: 0.5rem">Cross-references breakdown timestamps with operator shift logs.</td>
+<tr class="odd">
+<td>MT1</td>
+<td>Register Failure Type</td>
+<td>Engineering defines failure code</td>
+<td><code>FailureTypes</code></td>
+<td>Enforces unique error codes and records expected repair benchmarks.</td>
 </tr>
 <tr class="even">
-<td style="padding: 0.5rem"><strong>EM15</strong></td>
-<td style="padding: 0.5rem">Technician Repair Audit</td>
-<td style="padding: 0.5rem">Maintenance manager reviews crew</td>
-<td style="padding: 0.5rem"><code>Repairs</code>, <code>Employees</code></td>
-<td style="padding: 0.5rem">Tracks actual repair durations against standard benchmark minutes.</td>
+<td>MT2</td>
+<td>Record Machine Failure</td>
+<td>Floor operator logs breakdown</td>
+<td><code>Failures</code>, <code>Machines</code></td>
+<td>Sets machine status to "Down" and alerts maintenance dispatch.</td>
+</tr>
+<tr class="odd">
+<td>MT3</td>
+<td>Perform Machine Repair</td>
+<td>Technician completes work order</td>
+<td><code>Repairs</code>, <code>Repairs_SpareParts</code></td>
+<td>Allocates spares, decrements inventory, and resets status to "Operational".</td>
+</tr>
+<tr class="even">
+<td>MT4</td>
+<td>Schedule Maintenance</td>
+<td>Planner sets calendar service</td>
+<td><code>ScheduledMaintenance</code></td>
+<td>Validates shift availability and assigns qualified technicians.</td>
+</tr>
+<tr class="odd">
+<td>MT5</td>
+<td>Add New Spares Item</td>
+<td>Procurement enters new part</td>
+<td><code>SpareParts</code></td>
+<td>Initializes reorder thresholds and opening unit purchase cost.</td>
+</tr>
+<tr class="even">
+<td>MT6</td>
+<td>Reconcile Spare Stock</td>
+<td>Stocktake count adjustment</td>
+<td><code>SpareParts</code></td>
+<td>Adjusts physical stock on hand and flags threshold breaches.</td>
+</tr>
+<tr class="odd">
+<td>MT7</td>
+<td>Update Spare Unit Price</td>
+<td>Supplier updates component pricing</td>
+<td><code>SpareParts</code>, <code>Audit</code></td>
+<td>Logs effective price dates while preserving historical work-order costs.</td>
+</tr>
+<tr class="even">
+<td>MT8</td>
+<td>Standard Failure Frequency</td>
+<td>Reliability engineer queries trends</td>
+<td><code>Failures</code>, <code>FailureTypes</code></td>
+<td>Aggregates breakdown occurrences across selectable date windows.</td>
+</tr>
+<tr class="odd">
+<td>MT9</td>
+<td>Repair Cost Calculation</td>
+<td>Accountant requests cost rollup</td>
+<td><code>Repairs</code>, <code>SpareParts</code></td>
+<td>Rolls up labor and parts cost by failure code.</td>
+</tr>
+<tr class="even">
+<td>EM2</td>
+<td>Periodic Maintenance Cost</td>
+<td>Executive quarterly cost review</td>
+<td><code>Repairs</code>, <code>ScheduledMaint</code></td>
+<td>Compares preventative investments vs reactive repair spend against budgets.</td>
+</tr>
+<tr class="odd">
+<td>EM14</td>
+<td>Operator Failure Correlation</td>
+<td>Operations reviews training needs</td>
+<td><code>Failures</code>, <code>Employees</code></td>
+<td>Cross-references breakdown timestamps with operator shift logs.</td>
+</tr>
+<tr class="even">
+<td>EM15</td>
+<td>Technician Repair Audit</td>
+<td>Maintenance manager reviews crew</td>
+<td><code>Repairs</code>, <code>Employees</code></td>
+<td>Tracks actual repair durations against standard benchmark minutes.</td>
 </tr>
 </tbody>
 </table>
@@ -507,6 +507,17 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </div>
+</div>
+</div>
+<div class="case-nav">
+<div class="case-nav-prev">
+<p><a href="../projects/blesmart.html">← Previous: BLESmart</a></p>
+</div>
+<div class="case-nav-index">
+<p><a href="../portfolio.html">All Projects</a></p>
+</div>
+<div class="case-nav-next">
+<p><a href="../projects/dizani-2025.html">Next: Dizani 2025 Internship →</a></p>
 </div>
 </div>
 </section>

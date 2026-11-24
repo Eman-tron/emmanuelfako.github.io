@@ -313,23 +313,31 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="portfolio" class="level1 section-title">
 <h1 class="section-title">Portfolio</h1>
-<p>A selection of academic and professional work.</p>
+<p>Selected academic, industrial internship, and personal engineering projects.</p>
+<div class="filter-bar" role="group" aria-label="Filter projects by category">
+  <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All (10)</button>
+  <button type="button" class="filter-btn" data-filter="systems" aria-pressed="false">Systems &amp; Software</button>
+  <button type="button" class="filter-btn" data-filter="iot" aria-pressed="false">IoT &amp; Hardware</button>
+  <button type="button" class="filter-btn" data-filter="operations" aria-pressed="false">Operations &amp; Internships</button>
+</div>
 <div class="project-grid">
-<div class="project-card">
+<div class="project-card" data-categories="iot systems">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/blesmart/walkthrough.jpg" class="img-fluid figure-img"></p>
-<figcaption>BLESmart Indoor Localisation &amp; Occupancy Detection</figcaption>
+<figcaption>BLESmart Indoor Localisation and Occupancy Detection</figcaption>
 </figure>
 </div>
 <section id="final-year-project-blesmart---indoor-localisation-occupancy-detection" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="final-year-project-blesmart---indoor-localisation-occupancy-detection"><a href="./projects/blesmart.html">Final Year Project: BLESmart - Indoor Localisation &amp; Occupancy Detection</a></h3>
+<div class="project-tags">
 <p><span class="tag">Final Year Project</span> <span class="tag">IoT &amp; ESP32</span> <span class="tag">Python</span> <span class="tag">Machine Learning</span> <span class="tag">Node-RED &amp; MQTT</span> <span class="tag">InfluxDB &amp; Grafana</span></p>
+</div>
 <p>Designed and validated a privacy-preserving Bluetooth Low Energy (BLE) pipeline using an ESP32-C6, MQTT, Node-RED, InfluxDB, and Grafana to track multi-room indoor movement and estimate live lecture hall attendance.</p>
-<p><a href="./projects/blesmart.html">Read more →</a></p>
+<p><a href="./projects/blesmart.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="systems">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/erp_eerd.png" class="img-fluid figure-img"></p>
@@ -338,26 +346,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="enterprise-resource-planning-industrial-maintenance-asset-management-system" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="enterprise-resource-planning-industrial-maintenance-asset-management-system"><a href="./projects/maintenance-erp.html">Enterprise Resource Planning: Industrial Maintenance &amp; Asset Management System</a></h3>
+<div class="project-tags">
 <p><span class="tag">Enterprise Systems</span> <span class="tag">MS SQL Server</span> <span class="tag">C# .NET</span> <span class="tag">Database Architecture</span> <span class="tag">Systems Engineering</span></p>
+</div>
 <p>Architected an end-to-end ERP maintenance subsystem for manufacturing operations, integrating MS SQL Server relational modeling with a C# .NET desktop application across 9 core maintenance events and executive KPIs.</p>
-<p><a href="./projects/maintenance-erp.html">Read more →</a></p>
+<p><a href="./projects/maintenance-erp.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="operations">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/dizani.png" class="img-fluid figure-img"></p>
-<figcaption>OEE Optimization</figcaption>
+<p><img src="images/cnc.png" class="img-fluid figure-img"></p>
+<figcaption>Coricraft CNC Nesting and OEE Optimization</figcaption>
 </figure>
 </div>
 <section id="internship-2025-dizani-x-coricraft-x-beekman---oee-optimization-digital-tracking" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="internship-2025-dizani-x-coricraft-x-beekman---oee-optimization-digital-tracking"><a href="./projects/dizani-2025.html">Internship 2025: Dizani x Coricraft x Beekman - OEE Optimization &amp; Digital Tracking</a></h3>
+<div class="project-tags">
 <p><span class="tag">Internship</span> <span class="tag">OEE</span> <span class="tag">LEAN</span> <span class="tag">Process Improvement</span></p>
+</div>
 <p>Led process optimization initiatives at Coricraft and Beekman Canopies, digitizing performance tracking and driving laminating team OEE from 72% to over 90%.</p>
-<p><a href="./projects/dizani-2025.html">Read more →</a></p>
+<p><a href="./projects/dizani-2025.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="iot">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/rootguard_card.png" class="img-fluid figure-img"></p>
@@ -366,12 +378,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="rootguard-iot-soil-moisture-monitor" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="rootguard-iot-soil-moisture-monitor"><a href="./projects/rootguard.html">RootGuard: IoT Soil Moisture Monitor</a></h3>
+<div class="project-tags">
 <p><span class="tag">Personal Project</span> <span class="tag">ESP32-C5</span> <span class="tag">Autodesk Inventor</span> <span class="tag">Soldering &amp; Electronics</span> <span class="tag">C++</span></p>
+</div>
 <p>A battery-powered soil monitor built to keep my Monstera alive. Designed a 3D-printed case in Autodesk Inventor, learned to solder while tracking down hardware bugs, and wrote low-power ESP32 firmware with an on-demand web dashboard.</p>
-<p><a href="./projects/rootguard.html">Read more →</a></p>
+<p><a href="./projects/rootguard.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="systems">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/ee_dash.png" class="img-fluid figure-img"></p>
@@ -380,12 +394,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="easyequities-portfolio-tracker" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="easyequities-portfolio-tracker"><a href="./projects/ee-tracker.html">EasyEquities Portfolio Tracker</a></h3>
-<p><span class="tag">Python</span> <span class="tag">C# .NET</span> <span class="tag">OCR</span> <span class="tag">Excel Automation</span> <span class="tag">Finance</span> <span class="tag">Machine Learning</span></p>
+<div class="project-tags">
+<p><span class="tag">Python</span> <span class="tag">C# .NET</span> <span class="tag">OCR</span> <span class="tag">Excel Automation</span> <span class="tag">Finance</span></p>
+</div>
 <p>Built a C# desktop application and Python script to extract portfolio data from screenshots using OCR (Optical Character Recognition) and automatically update a custom Excel tracking dashboard.</p>
-<p><a href="./projects/ee-tracker.html">Read more →</a></p>
+<p><a href="./projects/ee-tracker.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="systems">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/SOM_grid2.png" class="img-fluid figure-img"></p>
@@ -394,12 +410,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="data-analytics-wind-turbine-operational-analysis-clustering" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="data-analytics-wind-turbine-operational-analysis-clustering"><a href="./projects/wind-turbine.html">Data Analytics: Wind Turbine Operational Analysis &amp; Clustering</a></h3>
+<div class="project-tags">
 <p><span class="tag">Varsity</span> <span class="tag">Data Analytics</span> <span class="tag">R</span> <span class="tag">Clustering</span></p>
+</div>
 <p>Segmented 60-feature turbine sensor data into 3 operational clusters using SOM and K-Means, enabling predictive maintenance decisions.</p>
-<p><a href="./projects/wind-turbine.html">Read more →</a></p>
+<p><a href="./projects/wind-turbine.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="operations">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/team_photo.png" class="img-fluid figure-img"></p>
@@ -408,12 +426,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="project-management-automated-smart-distribution-warehouse" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="project-management-automated-smart-distribution-warehouse"><a href="./projects/takealot-warehouse.html">Project Management: Automated Smart Distribution Warehouse</a></h3>
+<div class="project-tags">
 <p><span class="tag">Varsity</span> <span class="tag">Project Management</span> <span class="tag">MS Project</span> <span class="tag">Resource Optimization</span> <span class="tag">Risk</span></p>
+</div>
 <p>Led the scheduling, baseline architecture, and resource strategy for a 12-period Project Management simulation, securing a 1st-place cohort finish.</p>
-<p><a href="./projects/takealot-warehouse.html">Read more →</a></p>
+<p><a href="./projects/takealot-warehouse.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="operations">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/tfc.png" class="img-fluid figure-img"></p>
@@ -422,12 +442,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="supply-chain-strategy-the-fresh-connection" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="supply-chain-strategy-the-fresh-connection"><a href="./projects/fresh-connection.html">Supply Chain Strategy: The Fresh Connection</a></h3>
+<div class="project-tags">
 <p><span class="tag">Varsity</span> <span class="tag">Supply Chain</span> <span class="tag">Purchasing</span> <span class="tag">Data Analysis</span> <span class="tag">Optimization</span></p>
+</div>
 <p>Fulfilled the role of Purchasing Manager for a massive simulated fruit juice company, executing an efficiency-driven strategy across 6 rounds to achieve an 80% final grade and a 5th-place finish.</p>
-<p><a href="./projects/fresh-connection.html">Read more →</a></p>
+<p><a href="./projects/fresh-connection.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="operations">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/ergospp.png" class="img-fluid figure-img"></p>
@@ -436,26 +458,55 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="ergonomics-thermal-stress-analysis" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="ergonomics-thermal-stress-analysis"><a href="./projects/thermal-stress.html">Ergonomics &amp; Thermal Stress Analysis</a></h3>
+<div class="project-tags">
 <p><span class="tag">Varsity</span> <span class="tag">Ergonomics</span> <span class="tag">First Principles</span> <span class="tag">ECSA GA2</span> <span class="tag">Methodology</span></p>
+</div>
 <p>Demonstrated the application of scientific and engineering knowledge from first principles to solve a complex workplace thermal stress problem using custom instrumentation and ergonomic modeling.</p>
-<p><a href="./projects/thermal-stress.html">Read more →</a></p>
+<p><a href="./projects/thermal-stress.html" class="project-link">Read more →</a></p>
 </section>
 </div>
-<div class="project-card">
+<div class="project-card" data-categories="operations">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/dizani.png" class="img-fluid figure-img"></p>
-<figcaption>LEAN Layout Optimization</figcaption>
+<p><img src="images/buffer_optimization.png" class="img-fluid figure-img"></p>
+<figcaption>LEAN Buffer Layout Optimization</figcaption>
 </figure>
 </div>
 <section id="internship-2024-dizani-x-alpine---lean-implementation-layout-design" class="level3 project-card-body">
 <h3 class="anchored" data-anchor-id="internship-2024-dizani-x-alpine---lean-implementation-layout-design"><a href="./projects/dizani-2024.html">Internship 2024: Dizani x Alpine - LEAN Implementation &amp; Layout Design</a></h3>
+<div class="project-tags">
 <p><span class="tag">Internship</span> <span class="tag">LEAN</span> <span class="tag">Time Studies</span> <span class="tag">Facility Layout</span> <span class="tag">Process Improvement</span></p>
+</div>
 <p>Implemented LEAN methodologies and redesigned the Fibre Department’s material stock buffer, significantly increasing local storage capacity and advancing the factory toward its 136-suite target.</p>
-<p><a href="./projects/dizani-2024.html">Read more →</a></p>
+<p><a href="./projects/dizani-2024.html" class="project-link">Read more →</a></p>
 </section>
 </div>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll(".filter-btn");
+  var cards = document.querySelectorAll(".project-grid .project-card");
+  if (!buttons.length || !cards.length) return;
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var filter = btn.getAttribute("data-filter") || "all";
+
+      buttons.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
+      cards.forEach(function (card) {
+        var cats = (card.getAttribute("data-categories") || "").split(/\s+/);
+        var show = filter === "all" || cats.indexOf(filter) !== -1;
+        card.classList.toggle("is-hidden", !show);
+      });
+    });
+  });
+});
+</script>
 </section>
 
 

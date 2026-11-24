@@ -340,7 +340,11 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Wrong Wakeup Pin:</strong> The button was originally wired to a pin that sat outside the chip’s low-power wakeup domain.</li>
 <li><strong>The Sneaky Status LED:</strong> The sensor ground switch was shared with the board’s built-in green LED. Turning off the sensor accidentally lit the LED, secretly pulling 2-3 mA around the clock.</li>
 </ul>
-<p>To fix it, I learned how to solder and rework the board myself: * Desoldered and moved the button to a proper low-power wakeup pin (<code>GPIO 6</code>). * Changed the sensor pin mode in code to high-impedance (<code>Hi-Z</code>) during sleep so both the probe and the green LED shut off completely, dropping sleep current down to microamps.</p>
+<p>To fix it, I learned how to solder and rework the board myself:</p>
+<ul>
+<li>Desoldered and moved the button to a proper low-power wakeup pin (<code>GPIO 6</code>).</li>
+<li>Changed the sensor pin mode in code to high-impedance (<code>Hi-Z</code>) during sleep so both the probe and the green LED shut off completely, dropping sleep current down to microamps.</li>
+</ul>
 <hr>
 </section>
 <section id="key-takeaways" class="level3">
@@ -354,7 +358,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="photos-build-log-coming-soon" class="level3">
 <h3 class="anchored" data-anchor-id="photos-build-log-coming-soon">Photos &amp; Build Log (Coming Soon)</h3>
-<p><em>Photos of the Autodesk Inventor model, the reworked board, and the sensor sitting in the Monstera pot will be added here soon.</em></p>
+<div class="case-note">
+<p>Photos of the Autodesk Inventor model, the reworked board, and the sensor sitting in the Monstera pot will be added here soon.</p>
+</div>
+<div class="case-nav">
+<div class="case-nav-prev">
+<p><a href="../projects/dizani-2025.html">← Previous: Dizani 2025 Internship</a></p>
+</div>
+<div class="case-nav-index">
+<p><a href="../portfolio.html">All Projects</a></p>
+</div>
+<div class="case-nav-next">
+<p><a href="../projects/ee-tracker.html">Next: EasyEquities Tracker →</a></p>
+</div>
+</div>
 </section>
 </section>
 </section>
