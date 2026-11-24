@@ -323,7 +323,7 @@ button.btn-secondary:hover {
 
 /* === PROFILE PICTURE & HERO SECTION === */
 .profile-pic {
-  max-width: 260px;
+  max-width: 320px;
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -1322,7 +1322,7 @@ table.case-table td:first-child {
   }
 
   .profile-pic {
-    max-width: 185px;
+    max-width: 240px;
   }
 
   .section,
