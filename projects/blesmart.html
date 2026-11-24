@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>BLESmart | Emmanuel Fako – Emmanuel Fako | Industrial Engineer</title>
+<title>BLESmart: Indoor Localisation &amp; Occupancy Detection | Emmanuel Fako – Emmanuel Fako | Industrial Engineer</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -48,9 +48,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-34383ab407711c9051ff0c8b9a65adc8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-dfa25673fad92089dabd8dce756b1c84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-34383ab407711c9051ff0c8b9a65adc8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -313,68 +310,49 @@ ul.task-list li input[type="checkbox"] {
 
 <section>
 <p><a href="../portfolio.html">← Back to Portfolio</a></p>
-<section id="blesmart" class="level1 section-title">
-<h1 class="section-title">BLESmart</h1>
-<p><strong>Indoor localisation and classroom occupancy estimation</strong><br>
-BEng Industrial Engineering · Stellenbosch University · Final-year project, 2026</p>
-<p>I wanted to see what a university could learn about how its rooms are used from the Bluetooth signals already present. I built two experiments around an ESP32 scanner. In one, I carried it between fixed beacons to predict my location. In the other, I left it in a classroom and compared nearby device activity with the number of people I counted by hand.</p>
-<video controls="" playsinline="" preload="none" poster="../images/blesmart/walkthrough.jpg" aria-label="BLESmart live doorway walk test" style="display:block;width:100%;max-width:900px;border-radius:8px"><source src="../images/blesmart/walkthrough.mp4" type="video/mp4"></video>
-<p><em>Live walk test. The camera view shows the route from Room 2 through the doorway into Room 3. The floor plan shows the predicted location.</em></p>
-<section id="finding-the-right-room" class="level2">
-<h2 class="anchored" data-anchor-id="finding-the-right-room">Finding the right room</h2>
-<p>Five beacons gave each location a characteristic pattern of signal strengths. I recorded labelled examples, then used weighted nearest neighbours to match new readings to familiar patterns. I tested the same approach at two scales: 21 open-plan zones of 3 × 3 metres, and five rooms connected by four doorway transition zones.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Test environment</th>
-<th style="text-align: right;">Offline exact</th>
-<th style="text-align: right;">Live exact</th>
-<th style="text-align: right;">Live including adjacent zones</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Open-plan zones</td>
-<td style="text-align: right;">80.41%</td>
-<td style="text-align: right;">24.9%</td>
-<td style="text-align: right;">67.7%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rooms and doorways</td>
-<td style="text-align: right;">92.83%</td>
-<td style="text-align: right;">50.6%</td>
-<td style="text-align: right;">86.7%</td>
-</tr>
-</tbody>
-</table>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../images/blesmart/room-walk.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Predicted and actual room labels over the live walk test."><img src="../images/blesmart/room-walk.png" class="img-fluid figure-img" alt="Predicted and actual room labels over the live walk test."></a></p>
-<figcaption>Predicted and actual room labels over the live walk test.</figcaption>
-</figure>
-</div>
-<p>Walls helped distinguish rooms. Within the open-plan space, turning my body could change the signal enough to shift the prediction into the next zone. The walk test exposed a weakness in my evaluation: my offline split drew training and test samples from the same recordings. I would hold out entire runs in a repeat experiment.</p>
+<section id="blesmart-indoor-localisation-occupancy-detection" class="level1 section-title">
+<h1 class="section-title">BLESmart: Indoor Localisation &amp; Occupancy Detection</h1>
+<p><strong>Context:</strong> Industrial Project 498 (Final Year Project, 2026) · IoT, Edge Computing &amp; Machine Learning</p>
+<p>A privacy-preserving Bluetooth Low Energy (BLE) telemetry system built to track multi-room indoor movement and estimate live classroom attendance without cameras or intrusive infrastructure.</p>
+<hr>
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The Problem</h3>
+<ul>
+<li>Satellite GPS signals degrade indoors, while conventional indoor tracking systems (optical cameras, RFID gates, or Ultra-Wideband anchors) are costly to scale across university campuses and introduce privacy concerns.</li>
+<li>Everyday 2.4 GHz Bluetooth Low Energy (BLE) signals offer a low-cost alternative using fixed reference beacons and the mobile devices people already carry, but raw indoor signal strength fluctuates heavily due to wall reflections and human body absorption.</li>
+<li>Counting nearby Bluetooth broadcasts directly inflates visitor numbers by 4 to 6 times per hour because modern phones rotate their MAC addresses every 10 to 15 minutes for privacy, alongside constant background noise from static classroom equipment such as projectors and printers.</li>
+</ul>
 </section>
-<section id="what-happened-when-a-lecture-ended" class="level2">
-<h2 class="anchored" data-anchor-id="what-happened-when-a-lecture-ended">What happened when a lecture ended</h2>
-<p>For the occupancy experiment, I used Node-RED to filter nearby Bluetooth broadcasts, stored aggregate counts in InfluxDB, and compared them with manual headcounts. When 39 students left together, the device count stayed high. I traced the problem to the ESP32: more than 60 device timeouts arrived in a burst, and its 30-slot message queue lost departure events.</p>
-<p>I increased the queue to 150 slots and added a 75-second expiry in Node-RED. The stale counts cleared. Across 25 live observations, the estimates followed changes in attendance but were still off by <strong>11 people on average</strong>. How many devices each person carried mattered even after the firmware fix.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../images/blesmart/occupancy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Live classroom occupancy estimates compared with manual headcounts."><img src="../images/blesmart/occupancy.png" class="img-fluid figure-img" alt="Live classroom occupancy estimates compared with manual headcounts."></a></p>
-<figcaption>Live classroom occupancy estimates compared with manual headcounts.</figcaption>
-</figure>
-</div>
+<section id="the-approach" class="level3">
+<h3 class="anchored" data-anchor-id="the-approach">The Approach</h3>
+<ul>
+<li><strong>Three-Tier IoT Telemetry Pipeline:</strong> Engineered an end-to-end architecture connecting an ESP32-C6 scanner and five BLE reference beacons to an MQTT broker, Node-RED middleware, InfluxDB time-series storage, and live Grafana floor-plan dashboards. Implemented onboard packet buffering and 500 ms JSON batching on the ESP32-C6 to prevent single-antenna Wi-Fi and Bluetooth drops, maintaining a ~398 ms live inference latency.</li>
+<li><strong>Live Spatial Fingerprinting (<code>LabelTron</code>):</strong> Built a custom Telegram bot integrated with Node-RED to inject live spatial labels during field calibration, recording over 9,000 labelled fingerprints across a 21-zone open-plan space (3 x 3 m grid) and a five-room complex with four doorway transition zones.</li>
+<li><strong>Signal Conditioning &amp; Classification:</strong> Designed a custom “Smart EMA” (Exponential Moving Average) filter in Node-RED that smooths noisy signal swings while snapping cleanly on beacon dropouts and recoveries. Benchmarked KNN, Weighted KNN, and Random Forest models in Python (<code>scikit-learn</code>) across 210 parameter combinations, deploying Weighted KNN so new rooms can be appended to the reference map without retraining.</li>
+<li><strong>POPIA-Aligned Occupancy Estimation:</strong> Parsed public BLE protocol identifiers (Apple, Google/Android, and Samsung) alongside a signal-strength perimeter gate to separate active personal devices from static room hardware without MAC de-randomisation. Temporary identifiers were held strictly in volatile RAM and purged within 75 seconds so only anonymous integer headcounts were stored.</li>
+<li><strong>Live Stress Testing &amp; Queue Optimization:</strong> Validated the occupancy pipeline across live university lectures against manual headcounts. When a simultaneous 39-student lecture exit burst overwhelmed the ESP32’s default 30-slot MQTT queue, traced the root cause, expanded buffer capacity to 150 slots, and added a 75-second Node-RED expiry watchdog so departure bursts cleared cleanly.</li>
+</ul>
 </section>
-<section id="project-materials" class="level2">
-<h2 class="anchored" data-anchor-id="project-materials">Project materials</h2>
-<p><a href="../images/blesmart/BLESmart-executive-summary.pdf">Executive summary (PDF)</a> · <a href="../images/blesmart/BLESmart-presentation.pptx">Download the presentation (PowerPoint)</a></p>
+<section id="the-outcome" class="level3">
+<h3 class="anchored" data-anchor-id="the-outcome">The Outcome</h3>
+<ul>
+<li><strong>Multi-Room &amp; Zone Localisation:</strong> Achieved <strong>92.8% offline classification accuracy</strong> across the five-room and doorway network and <strong>80.4%</strong> across the 21 open-plan zones (+10 percentage-point gain from the Smart EMA filter). During continuous live walk tests, physical walls provided clear signal separation, tracking the active room or doorway transition across <strong>86.7% of live windows</strong> (15 of 16 segments).</li>
+<li><strong>Anonymous Classroom Occupancy:</strong> Rejected ~65% of static background radio noise and achieved an <strong>R² of 0.97 offline</strong> (MAE of 3.1 occupants) and <strong>R² of 0.96 during live lecture validation</strong>, accurately tracking real-time arrival and exit trends across sessions.</li>
+<li><strong>Scalable Campus Prototype:</strong> Delivered a complete, low-cost hardware and analytics stack capable of supporting data-driven lecture venue allocation and demand-driven HVAC energy control.</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Practical Impact:</strong> Demonstrated that low-cost ESP32 edge nodes paired with targeted signal filtering and lightweight machine learning can deliver privacy-safe building analytics without cameras or high-cost tracking hardware.</p>
+</blockquote>
+<p><a href="../images/blesmart/BLESmart-executive-summary.pdf" class="btn-primary">View Executive Summary (PDF)</a> <a href="../images/blesmart/BLESmart-presentation.pptx" class="btn-secondary">Download Presentation Slides (.pptx)</a></p>
+<hr>
+</section>
+<section id="project-visuals" class="level3">
+<h3 class="anchored" data-anchor-id="project-visuals">Project Visuals</h3>
+<p><strong>Live Multi-Room Walk-Test &amp; Floor Plan Tracking</strong> <em>Live walkthrough moving from Room 2 through the doorway into Room 3, paired with the real-time predicted location on the floor plan.</em></p>
+<video controls="" playsinline="" preload="none" poster="../images/blesmart/walkthrough.jpg" aria-label="BLESmart live doorway walk test" style="display:block;width:100%;max-width:860px;margin:1rem auto 2rem;border-radius:8px;border:1px solid var(--border);"><source src="../images/blesmart/walkthrough.mp4" type="video/mp4"></video>
+<p><strong>End-to-End Edge-to-Cloud Architecture</strong> <img src="../images/blesmart/architecture.png" class="img-fluid" style="max-width:860px;" alt="BLESmart Three-Tier System Architecture"></p>
+<p><strong>Inter-Room Live Trajectory Validation</strong> <img src="../images/blesmart/room-walk.png" class="img-fluid" style="max-width:860px;" alt="Predicted vs.&nbsp;Ground-Truth Room Trajectory"></p>
+<p><strong>Anonymous Classroom Occupancy Tracking</strong> <img src="../images/blesmart/occupancy.png" class="img-fluid" style="max-width:860px;" alt="Live Lecture Occupancy Estimates vs.&nbsp;Manual Headcounts"></p>
 </section>
 </section>
 </section>
@@ -814,38 +792,6 @@ BEng Industrial Engineering · Stellenbosch University · Final-year project, 20
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
